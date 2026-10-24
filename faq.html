@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ · Zonal</title>
+  <meta name="description" content="Answers to common questions about Zonal.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zonal.anteras.org/faq.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zonal">
+  <meta property="og:title" content="FAQ · Zonal">
+  <meta property="og:description" content="Answers to common questions about Zonal.">
+  <meta property="og:url" content="https://zonal.anteras.org/faq.html">
+  <link rel="stylesheet" href="style.css">
+  <script src="keys.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Zonal home"><svg viewBox="0 0 30 22" aria-hidden="true" focusable="false"><rect x=".75" y=".75" width="28.5" height="20.5" rx="5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="1.5"/><rect x="4" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/><rect x="11.5" y="4" width="7" height="14" rx="1.5" fill="var(--accent)"/><rect x="20.5" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/></svg>Zonal</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+        </ul>
+      </nav>
+      <div class="keys-toggle js-only" role="group" aria-label="Key labels" hidden><button type="button" data-keys="symbols" aria-pressed="true">&#8984;</button><button type="button" data-keys="names" aria-pressed="false">Cmd</button></div>
+    </div>
+  </header>
+  <main id="main" class="wrap doc">
+    <header class="page-head">
+      <h1>FAQ</h1>
+      <p class="lead">Answers to common questions about setting up Zonal, using it, and fixing the few things that can go wrong.</p>
+    </header>
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#using-zonal">Using Zonal</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#updates-uninstalling">Updates and uninstalling</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="getting-started">Getting started</h2>
+    <div class="faq">
+      <details>
+        <summary>Which versions of macOS does Zonal support?</summary>
+        <div class="answer">
+          <!-- spec 2, project.yml MACOSX_DEPLOYMENT_TARGET 26.0 -->
+          <p>Zonal needs macOS 26 or later.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does Zonal need any permissions?</summary>
+        <div class="answer">
+          <!-- ON-6, spec 3.11 -->
+          <p>Zonal needs one: Accessibility. It does not ask for Input Monitoring or Screen Recording.</p>
+          <p>macOS does not let an app move another app's windows unless you allow it in Privacy &amp; Security &gt; Accessibility. Zonal uses that access to move and resize windows when you Snap them. It does not record your screen or read what you type.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is Zonal on the Mac App Store?</summary>
+        <div class="answer">
+          <!-- spec 4.7, 3.13 -->
+          <p>No. You download Zonal from this site. The app is signed with a Developer ID and notarized by Apple.</p>
+        </div>
+      </details>
+    </div>
+
+    <h2 id="using-zonal">Using Zonal</h2>
+    <div class="faq">
+      <details>
+        <summary>Can each display have its own Layout?</summary>
+        <div class="answer">
+          <!-- LD-1, HK-11, spec 3.7 -->
+          <p>Yes. Each display has its own Layout, and Zonal remembers it. If you unplug a display and connect it again, it gets its Layout back. Choose a display's Layout from the Zonal menu-bar menu.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does the Layout change when I switch Spaces?</summary>
+        <div class="answer">
+          <!-- LD-5, spec 3.7 -->
+          <p>No. A display keeps the same Layout on every Space.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can I change the keyboard shortcuts?</summary>
+        <div class="answer">
+          <!-- HK-4, HK-5, HK-6, HK-9, spec 3.5 -->
+          <p>Yes. Open Settings &gt; Hotkeys from the Zonal menu and record a new combination for any action. You can also clear a shortcut. The shortcut works at once, without a restart.</p>
+          <p>A shortcut needs <kbd>⌃</kbd> or <kbd>⌘</kbd> among its modifiers, and it can't match another Zonal shortcut. The <strong>Hyper</strong> preset switches all four actions to <span class="keys"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>⌘</kbd></span> plus the same keys.</p>
+          <p>To change the key you hold while dragging, open Settings &gt; General. You can choose <kbd>⇧</kbd>, <kbd>⌥</kbd> or <kbd>⌘</kbd>, or turn on <strong>Always show Zones</strong> and hold the key to hide them.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How do I cancel a Snap while I'm dragging?</summary>
+        <div class="answer">
+          <!-- DS-3, DS-13, spec 3.1 -->
+          <p>Press <kbd>esc</kbd>, or release the <kbd>⇧</kbd> key (or the key you chose in Settings) before you let go of the mouse button. The Zones disappear and the window stays where you drop it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does Zonal conflict with Rectangle, Magnet or other window managers?</summary>
+        <div class="answer">
+          <!-- HK-7, spec 3.5 rule 7 -->
+          <p>It can, if both apps use the same shortcut. When one is running, Zonal shows a warning in Settings &gt; Hotkeys and in the welcome window. Zonal's defaults, <span class="keys"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd></span> plus a key, avoid the usual defaults of Rectangle and Magnet.</p>
+          <p>If a shortcut does overlap, record a different one in Settings &gt; Hotkeys, or choose the Hyper preset. Dragging with <kbd>⇧</kbd> held does not use any of these shortcuts.</p>
+        </div>
+      </details>
+    </div>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+    <div class="faq">
+      <details>
+        <summary>Nothing happens when I Shift-drag a window.</summary>
+        <div class="answer">
+          <!-- DS-6, DS-2, spec 3.1 rule 9, 3.10, LC-3 -->
+          <p>Check these in order:</p>
+          <ol>
+            <li>Open the Zonal menu. If it says <strong>Accessibility access needed</strong>, choose <strong>Grant Accessibility Access…</strong> and turn Zonal on.</li>
+            <li>Check your Trial or License in Settings &gt; License. When the Trial ends and there is no License, Snapping and shortcuts stop. The Layout editor still opens.</li>
+            <li>Drag the window by its title bar. Zones don't appear when you resize a window or select text.</li>
+            <li>Check the window type. Zonal does not move dialogs, sheets, panels, palettes or windows in native full screen.</li>
+            <li>Check the activation key in Settings &gt; General. If you changed it, hold that key instead of <kbd>⇧</kbd>.</li>
+          </ol>
+        </div>
+      </details>
+      <details>
+        <summary>I allowed Accessibility, but Zonal says it's missing.</summary>
+        <div class="answer">
+          <!-- ON-3, ON-4, spec 3.11 -->
+          <p>This can happen when the Accessibility list holds an outdated entry for Zonal, for example after you replaced the app with another copy. macOS ties the permission to the app's signature. Zonal notices within a few seconds, shows a warning triangle on its menu-bar icon and opens the Accessibility step.</p>
+          <ol>
+            <li>Open System Settings &gt; Privacy &amp; Security &gt; Accessibility.</li>
+            <li>Select Zonal in the list and click the minus button (<strong>−</strong>) to remove it.</li>
+            <li>Choose <strong>Open Settings</strong> in the welcome window (Zonal menu &gt; Welcome…), or <strong>Grant Accessibility Access…</strong> in the Zonal menu, and turn Zonal on again.</li>
+          </ol>
+          <p>Zonal picks up the change on its own. You don't need to restart it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>A window doesn't fill the Zone.</summary>
+        <div class="answer">
+          <!-- CW-1, CW-2, CW-7, spec 3.4, verification.md -->
+          <p>Some windows have a minimum or fixed size, and an app can refuse a size that is smaller than its minimum. When that happens, Zonal centers the window in the Zone and keeps it fully on screen. For example, System Settings has a fixed width, so it fills the height of a Zone and is centered across its width.</p>
+          <p>A window larger than the display is lined up with the left and top edges of the visible area, so its title bar stays reachable. Choose a larger Zone, or a Layout with wider Zones, if you want the window to fill it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Terminal windows are a little smaller or larger than the Zone.</summary>
+        <div class="answer">
+          <!-- CW-4, CW-6, verification.md -->
+          <p>Terminal sizes its windows in whole character cells, so it can't match a Zone to the pixel. In testing, a Snapped Terminal window differed from its Zone by a few points. Zonal centers the window on the Zone, so the leftover space is split evenly.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Preview doesn't move when I drag its title.</summary>
+        <div class="answer">
+          <!-- DS-12 partial, verification.md -->
+          <p>In the middle of Preview's title bar is the document's proxy icon. Dragging it drags the file, not the window. Drag the title bar somewhere else, for example near the left or right edge, with <kbd>⇧</kbd> held.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How does Zonal work with Stage Manager?</summary>
+        <div class="answer">
+          <!-- SM-1, SM-2, SM-4, DS-10, spec 3.8, verification.md -->
+          <p>When Stage Manager is on and its strip of recent apps is visible, Zonal leaves room for the strip, so no Zone sits under it. When the strip is hidden, Zones use the full screen. Turning Stage Manager on or off takes effect on your next drag or shortcut.</p>
+          <p>You can Shift-drag a window out of the strip and Snap it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>macOS tiles my window when I drag it to a screen edge.</summary>
+        <div class="answer">
+          <!-- TL-1, TL-2, TL-4, spec 3.9, verification.md -->
+          <p>macOS can tile a window when you drag it to an edge, and Zonal can react to the same drag. While Zonal's Zones are showing, Zonal wins: it Snaps the window when you release, over any macOS tile. You may see macOS's preview flash for a moment.</p>
+          <p>If you'd rather not see it, turn off edge tiling in System Settings &gt; Desktop &amp; Dock. Settings &gt; General shows a note with an <strong>Open Desktop &amp; Dock</strong> button when edge tiling is on.</p>
+        </div>
+      </details>
+    </div>
+
+    <h2 id="updates-uninstalling">Updates and uninstalling</h2>
+    <div class="faq">
+      <details>
+        <summary>How do updates work?</summary>
+        <div class="answer">
+          <!-- LC-10, LC-17, spec 3.13 rule 9 -->
+          <p>Zonal checks for updates once a day and asks before it installs one. To check yourself, choose <strong>Check for Updates…</strong> in the Zonal menu, or <strong>Check now</strong> in Settings &gt; Updates.</p>
+          <p>In Settings &gt; Updates you can turn on <strong>Automatically download and install updates</strong>, which is off by default, and <strong>Include beta versions</strong>. All 1.x updates are free.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How do I uninstall Zonal completely?</summary>
+        <div class="answer">
+          <!-- LI-2, LC-16, spec 3.12, 3.13, 4.3; paths from LayoutStore.swift, TrialStores.swift, LicenseStores.swift, project.yml -->
+          <p>If you're moving your License to another Mac, open Settings &gt; License and choose <strong>Deactivate this Mac</strong> first. That frees one of your three Activations.</p>
+          <ol>
+            <li>In System Settings &gt; General &gt; Login Items, turn Zonal off, or untick <strong>Start Zonal at login</strong> in Zonal's Settings &gt; General.</li>
+            <li>Choose <strong>Quit</strong> in the Zonal menu.</li>
+            <li>Drag Zonal from the Applications folder to the Trash.</li>
+          </ol>
+          <p>That removes the app. Zonal also keeps a few small files. To remove them, delete the folder that holds your Layouts and License records, and the preferences file:</p>
+          <pre>~/Library/Application Support/Zonal
+~/Library/Preferences/org.anteras.Zonal.plist</pre>
+          <p>Then, in Keychain Access, delete the two items named <code>org.anteras.Zonal.trial</code> and <code>org.anteras.Zonal.license</code>.</p>
+        </div>
+      </details>
+    </div>
+
+    <h2 id="contact">Contact</h2>
+    <p>Write to <a href="mailto:zonal@anteras.org">zonal@anteras.org</a>. Please include your macOS version and your Zonal version (choose <strong>About Zonal</strong> in the Zonal menu), and describe what you did and what happened.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 Antonio Rodriguez. Questions? <a href="mailto:zonal@anteras.org">zonal@anteras.org</a></p>
+      <p>Mac and macOS are trademarks of Apple Inc., registered in the U.S. and other countries. Windows and PowerToys are trademarks of Microsoft Corporation. Zonal is an independent product and is not affiliated with or endorsed by Apple or Microsoft.</p>
+    </div>
+  </footer>
+</body>
+</html>

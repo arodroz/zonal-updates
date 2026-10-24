@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guide · Zonal</title>
+  <meta name="description" content="How to set up Zonal, build a Layout and Snap windows into Zones.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zonal.anteras.org/guide.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zonal">
+  <meta property="og:title" content="Guide · Zonal">
+  <meta property="og:description" content="How to set up Zonal, build a Layout and Snap windows into Zones.">
+  <meta property="og:url" content="https://zonal.anteras.org/guide.html">
+  <link rel="stylesheet" href="style.css">
+  <script src="keys.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Zonal home"><svg viewBox="0 0 30 22" aria-hidden="true" focusable="false"><rect x=".75" y=".75" width="28.5" height="20.5" rx="5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="1.5"/><rect x="4" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/><rect x="11.5" y="4" width="7" height="14" rx="1.5" fill="var(--accent)"/><rect x="20.5" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/></svg>Zonal</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="guide.html" aria-current="page">Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+        </ul>
+      </nav>
+      <div class="keys-toggle js-only" role="group" aria-label="Key labels" hidden><button type="button" data-keys="symbols" aria-pressed="true">&#8984;</button><button type="button" data-keys="names" aria-pressed="false">Cmd</button></div>
+    </div>
+  </header>
+  <main id="main" class="wrap doc">
+    <header class="page-head">
+      <h1>Guide</h1>
+      <p class="lead">Set up Zonal, build a Layout and Snap windows into Zones with the mouse or the keyboard.</p>
+    </header>
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#mouse">Snapping with the mouse</a></li>
+        <li><a href="#keyboard">Snapping with the keyboard</a></li>
+        <li><a href="#layouts">Layouts</a></li>
+        <li><a href="#displays-spaces">Displays and Spaces</a></li>
+        <li><a href="#macos-tiling">Stage Manager and macOS tiling</a></li>
+        <li><a href="#constrained">Windows that cannot fill a Zone</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+        <li><a href="#updates">Updates</a></li>
+        <li><a href="#more-help">License and troubleshooting</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="getting-started">Getting started</h2>
+
+    <h3 id="install">Install</h3>
+    <p>Open the downloaded zip file, move Zonal to your Applications folder, then open it from there.</p>
+
+    <h3 id="first-launch">First launch</h3>
+    <p>The first time Zonal opens, it shows a welcome window with three steps. Zonal runs from the menu bar and has no Dock icon.</p>
+    <ol class="steps">
+      <li><strong>What Zonal does.</strong> A short summary: hold <kbd>⇧</kbd> while you drag a window to see the Zones, then let go over one.</li>
+      <li><strong>Allow Accessibility.</strong> Zonal needs Accessibility access to move other apps’ windows. Click <strong>Open Settings</strong>, which opens Privacy &amp; Security &gt; Accessibility. Turn on Zonal. The status in the welcome window changes from “Not granted yet” to “Granted” by itself. You do not need to relaunch Zonal.</li>
+      <li><strong>Try it.</strong> Drag the welcome window by its title bar while you hold <kbd>⇧</kbd><span class="when-symbols"> <span class="nowrap">(Shift)</span></span>, and let go over a Zone. The welcome window is the one Zonal window that Snaps.</li>
+    </ol>
+    <p>You can reopen the welcome window at any time: choose <strong>Welcome…</strong> from the menu-bar menu.</p>
+
+    <h3 id="login">Launch at login</h3>
+    <p>The welcome window has a <strong>Start Zonal at login</strong> checkbox. It is ticked by default. You can change it later in Settings &gt; General; both places always show the same state. If macOS asks you to approve the login item, Zonal says so and offers <strong>Open Login Items</strong>.</p>
+
+    <h3 id="menu-bar">The menu-bar icon</h3>
+    <p>Zonal lives in the menu bar. The icon shows a row of three Zones. While Accessibility is missing, the icon shows a warning triangle instead. Click it to open the menu:</p>
+    <ul>
+      <li>Accessibility status. If access is missing, <strong>Grant Accessibility Access…</strong> appears.</li>
+      <li>License status: the days left in your Trial, or Licensed. Once the Trial ends, <strong>Buy Zonal…</strong> appears.</li>
+      <li>One submenu per connected display. Choose the display’s Layout there.</li>
+      <li><strong>Edit Layouts…</strong> opens the Layouts window.</li>
+      <li><strong>Welcome…</strong> reopens the welcome window.</li>
+      <li><strong>Zonal Help</strong> opens this guide.</li>
+      <li><strong>About Zonal</strong></li>
+      <li><strong>Check for Updates…</strong></li>
+      <li><strong>Settings…</strong> (<kbd>⌘</kbd><kbd>,</kbd>)</li>
+      <li><strong>Quit</strong> (<kbd>⌘</kbd><kbd>Q</kbd>)</li>
+    </ul>
+
+    <h2 id="mouse">Snapping with the mouse</h2>
+    <p>A <em>Snap</em> moves and resizes a window so it exactly fills a Zone.</p>
+    <ol class="steps">
+      <li><strong>Start dragging a window.</strong> Drag it by its title bar.</li>
+      <li><strong>Hold <kbd>⇧</kbd><span class="when-symbols"> Shift</span>.</strong> An overlay appears on the display under your pointer. It shows the display’s Layout, with each Zone numbered. The Zone under the pointer is highlighted.</li>
+      <li><strong>Move over the Zone you want.</strong> If the pointer is in a gap between Zones, Zonal selects the nearest Zone. If the pointer is outside the usable area of the display, such as over the menu bar or the Dock, no Zone is selected.</li>
+      <li><strong>Release the mouse button.</strong> The window Snaps to the highlighted Zone.</li>
+    </ol>
+    <p>If you move the pointer to another display, the overlay moves with it and shows that display’s Layout.</p>
+
+    <h3 id="cancel">Cancel a Snap</h3>
+    <p>Release <kbd>⇧</kbd> before you release the mouse button, or press <kbd>esc</kbd>. The overlay hides and the window stays where you drop it. Dragging without the activation key never shows the overlay. Resizing a window or selecting text never shows it either.</p>
+
+    <h3 id="span">Span several Zones</h3>
+    <p>Hold <span class="keys"><kbd>⇧</kbd><kbd>⌃</kbd></span> <span class="when-symbols">(Shift and <kbd>⌃</kbd> Control) </span>while you drag. Every Zone the pointer crosses is added to the selection. When you release the mouse button, the window fills the smallest rectangle that contains all the selected Zones, including the gaps between them.</p>
+    <p>If you release <kbd>⌃</kbd> before the mouse button, the selection collapses to the Zone under the pointer. Spanning is limited to one display: if the pointer enters another display, the selection starts over.</p>
+
+    <h3 id="activation-key">Change the activation key</h3>
+    <p>The activation key is <kbd>⇧</kbd> by default. To change it, open Settings &gt; General.</p>
+    <ul>
+      <li><strong>Activation key</strong> offers Shift, <span class="keys"><kbd>⌥</kbd><span class="when-symbols"> Option</span></span> and <span class="keys"><kbd>⌘</kbd><span class="when-symbols"> Command</span></span>. <kbd>⌃</kbd> is not offered because it is the span key.</li>
+      <li><strong>Always show Zones (hold the key to suppress)</strong> shows the overlay on every window drag. The activation key then hides it for that drag.</li>
+    </ul>
+    <p>To span, hold <kbd>⌃</kbd> together with the activation key (<span class="keys"><kbd>⌥</kbd><kbd>⌃</kbd></span> or <span class="keys"><kbd>⌘</kbd><kbd>⌃</kbd></span>). With <strong>Always show Zones</strong> on, <kbd>⌃</kbd> alone spans. The span key cannot be changed.</p>
+
+    <h2 id="keyboard">Snapping with the keyboard</h2>
+    <p>Shortcuts act on the focused window of the frontmost app, on the display that holds the center of the window.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Default shortcuts">
+      <table class="keys-table">
+        <caption>Default shortcuts</caption>
+        <thead>
+          <tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>1</kbd> to <kbd>9</kbd></th><td>Snap the window to that numbered Zone. Nothing happens if the Layout has fewer Zones than the number.</td></tr>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>[</kbd></th><td>Move to the previous Zone. From the first Zone, the window moves to the last. If the window is not in a Zone, it moves to the last Zone.</td></tr>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>]</kbd></th><td>Move to the next Zone. From the last Zone, the window moves to the first. If the window is not in a Zone, it moves to the first Zone.</td></tr>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>`</kbd></th><td>Switch the display to its next Layout. The list wraps around. Windows do not move; the new Layout applies to your next Snap.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><span class="when-symbols"><kbd>⌃</kbd> Control, <kbd>⌥</kbd> Option, <kbd>⇧</kbd> Shift. </span><span class="js-only" hidden>Use the Key labels switch in the header to show names instead of symbols. </span>Keys such as <kbd>[</kbd>, <kbd>]</kbd> and <kbd>`</kbd> are shown for your current keyboard layout. If your keyboard is labelled Ctrl, Alt and Win, turn on <strong>Show key names instead of symbols</strong> in Settings &gt; General, and Zonal writes keys by name too.</p>
+
+    <h3 id="change-shortcuts">Change or clear a shortcut</h3>
+    <p>Open Settings &gt; Hotkeys. Each action has its own row: Zone 1 to Zone 9, Previous Zone, Next Zone and Next Layout.</p>
+    <ol class="steps">
+      <li>Click the shortcut.</li>
+      <li>Press the new combination. The new shortcut works at once, and the old one stops.</li>
+    </ol>
+    <p>Press <kbd>esc</kbd> to cancel, or <kbd>delete</kbd> to clear the shortcut. You can also click <strong>Clear</strong> next to it. A cleared action shows “Not set” and does nothing.</p>
+    <p>Every shortcut needs <kbd>⌃</kbd> or <kbd>⌘</kbd>. macOS does not deliver a shortcut that uses only <kbd>⇧</kbd> or <kbd>⌥</kbd> as modifiers, so Zonal refuses it with “A shortcut needs <kbd>⌃</kbd> or <kbd>⌘</kbd>.” Zonal also refuses a combination another Zonal action already uses, and tells you which one.</p>
+    <p>Two buttons set every shortcut at once. <strong>Hyper (<kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>⌘</kbd>)</strong> adds <kbd>⌘</kbd> to all of the default combinations. <strong>Restore defaults</strong> returns to the table above.</p>
+
+    <h3 id="conflicts">When another window manager is running</h3>
+    <p>If an app such as Rectangle, Magnet or Moom is running, Settings &gt; Hotkeys and the welcome window show a warning. macOS delivers a shortcut shared by two apps to both of them, so pick combinations the other app does not use. The warning disappears when the other app quits.</p>
+
+    <h2 id="layouts">Layouts</h2>
+    <p>A <em>Layout</em> is a named arrangement of Zones that covers one display. The Zones never overlap and always cover the whole display.</p>
+    <p>Zonal starts with five Layouts: Priority Grid (25/50/25 columns), 3 Columns, 2 Columns, 2 Rows and 2×2 Grid.</p>
+
+    <h3 id="layouts-window">The Layouts window</h3>
+    <p>Choose <strong>Edit Layouts…</strong> from the menu-bar menu, or click <strong>Open Layouts Window</strong> in Settings &gt; Layouts. Your Layouts are listed on the left. Select one to change it on the right.</p>
+    <ul>
+      <li><strong>Create.</strong> Click <strong>New Layout</strong>, choose a Template (Columns, Rows, Grid or Priority Grid), set the number of columns or rows from 1 to 6, and click the <strong>Create</strong> button, which carries the Layout’s name.</li>
+      <li><strong>Rename.</strong> Edit the <strong>Name</strong> field.</li>
+      <li><strong>Spacing.</strong> The <strong>Spacing</strong> slider sets the gap between Zones and at the edges of the display, from 0 to 24 points.</li>
+      <li><strong>Delete.</strong> Click the trash button below the list. The last remaining Layout cannot be deleted. If a display uses the Layout you delete, that display switches to the first remaining Layout.</li>
+      <li><strong>Assign.</strong> Under <strong>Displays</strong>, choose a Layout for each connected display. You can also do this from the menu-bar menu.</li>
+    </ul>
+    <p>Name, spacing and display changes apply at once.</p>
+
+    <h3 id="editor">The full-screen editor</h3>
+    <p>To change the Zones themselves, select the Layout in the Layouts window and click <strong>Edit on</strong> followed by the display’s name, for example <strong>Edit on Built-in Retina Display</strong>. The editor covers that display, so you work at real size.</p>
+    <ul>
+      <li><strong>Split a Zone.</strong> Click it. The Zone splits in two at the midpoint of its longer side: a wide Zone becomes two side-by-side Zones, a tall Zone becomes two stacked Zones. <kbd>⇧</kbd>-click splits the other way.</li>
+      <li><strong>Resize.</strong> Drag a divider. It moves in steps of 5%, and no Zone can become smaller than 5% of the display in either direction. A split that would make a Zone smaller than that is refused.</li>
+      <li><strong>Merge.</strong> <kbd>⌘</kbd>-click two or more neighboring Zones to select them, then click <strong>Merge</strong> (<span class="keys"><kbd>⌘</kbd><kbd>J</kbd></span>). The Zones must form a rectangle together; otherwise Zonal refuses.</li>
+      <li><strong>Numbers.</strong> After every edit, the Zones are renumbered in reading order, top to bottom and then left to right. Those numbers are the ones the overlay and the Zone shortcuts use.</li>
+      <li><strong>Undo and redo.</strong> <span class="keys"><kbd>⌘</kbd><kbd>Z</kbd></span> undoes the last edit. <span class="keys"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd></span> redoes it. The history ends when you leave the editor.</li>
+    </ul>
+    <p>Click <strong>Done</strong> to save the Layout. Press <kbd>esc</kbd> or click <strong>Cancel</strong> to discard your edits and leave the Layout as it was. You return to the Layouts window either way.</p>
+    <aside class="note">
+      <p>The editor and the Layouts window stay available after your Trial ends. Snapping and shortcuts do not. See <a href="licensing.html">Licensing</a>.</p>
+    </aside>
+
+    <h2 id="displays-spaces">Displays and Spaces</h2>
+    <ul>
+      <li><strong>One Layout per display.</strong> Each display has its own Layout, which you assign in the menu-bar menu or the Layouts window.</li>
+      <li><strong>New displays.</strong> The first time Zonal sees a display, it assigns a Layout by the display’s shape: Priority Grid for ultrawide displays (21:9 or wider), 2 Rows for portrait displays, and 2 Columns for everything else. You can change it at any time, and Zonal never resets it.</li>
+      <li><strong>Reconnecting.</strong> Unplug a display and plug it back in, and it gets its Layout back.</li>
+      <li><strong>Resolution changes.</strong> Zones scale with the display when its resolution or orientation changes. Zonal does not move windows you have already Snapped; macOS repositions them.</li>
+      <li><strong>Spaces.</strong> A display uses the same Layout on every Space.</li>
+    </ul>
+
+    <h2 id="macos-tiling">Stage Manager and macOS tiling</h2>
+    <h3 id="stage-manager">Stage Manager</h3>
+    <p>When Stage Manager is on and its strip of recent apps is visible, Zonal leaves room for the strip: the Zones, the overlay and every Snap stay clear of it. When the strip hides itself, the Zones use the whole display. You do not need to relaunch Zonal after you turn Stage Manager on or off.</p>
+
+    <h3 id="edge-tiling">macOS window tiling</h3>
+    <p>macOS can also tile a window when you drag it to a screen edge. If that setting is on, the welcome window shows a one-time tip, and Settings &gt; General shows a note with an <strong>Open Desktop &amp; Dock</strong> button. Zonal does not change the setting for you.</p>
+    <p>When both react to a drag, Zonal wins: while the overlay is visible, Zonal Snaps the window when you release, over any macOS tile. The macOS preview may flash briefly. The default Zonal shortcuts avoid the <kbd>fn</kbd><kbd>⌃</kbd> shortcuts macOS uses for tiling.</p>
+
+    <h2 id="constrained">Windows that cannot fill a Zone</h2>
+    <p>Some windows have a fixed size or a minimum size, so they cannot match a Zone exactly. After every Snap, Zonal checks the size the window actually took. If it differs from the Zone, Zonal centers the window on the Zone, and then moves it the least amount needed to keep it fully on the display.</p>
+    <p>A window larger than the display is aligned to the top-left, so its title bar stays reachable. A window that fits the Zone is not moved a second time.</p>
+
+    <h3 id="never-snapped">Windows that Zonal does not Snap</h3>
+    <p>Zonal Snaps standard windows. It never Snaps dialogs, sheets, floating panels and palettes, windows in macOS full-screen mode, or its own windows other than the welcome window. For these windows, dragging shows no overlay and shortcuts do nothing.</p>
+
+    <h2 id="permissions">Permissions</h2>
+    <p>Zonal needs one permission: Accessibility, so that it can move other apps’ windows. It does not need Input Monitoring or Screen Recording, and it does not show the system prompt when it launches. The first time you click <strong>Open Settings</strong> in the welcome window, macOS shows its prompt once and Zonal appears in the Accessibility list.</p>
+    <aside class="note warning">
+      <p class="note-title">If you turn Accessibility off</p>
+      <p>Within a few seconds, Snapping and shortcuts stop and the overlay hides. The menu-bar icon shows a warning triangle, and the welcome window opens at the Accessibility step. When you grant access again, Zonal resumes by itself.</p>
+    </aside>
+
+    <h2 id="updates">Updates</h2>
+    <p>Zonal checks for updates automatically once a day and asks before it installs one. To check now, choose <strong>Check for Updates…</strong> from the menu-bar menu, or click <strong>Check now</strong> in Settings &gt; Updates.</p>
+    <ul>
+      <li><strong>Automatically download and install updates</strong> is off by default. Turn it on to install updates without a prompt.</li>
+      <li><strong>Include beta versions</strong> adds the beta channel to your checks. It is separate from the automatic-install setting.</li>
+    </ul>
+
+    <h2 id="more-help">License and troubleshooting</h2>
+    <p>Zonal includes a 14-day Trial with every feature. For the Trial, buying a License and moving one between Macs, see <a href="licensing.html">Licensing</a>. If something does not work as described here, start with the <a href="faq.html">FAQ</a>.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="guide.html" aria-current="page">Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 Antonio Rodriguez. Questions? <a href="mailto:zonal@anteras.org">zonal@anteras.org</a></p>
+      <p>Mac and macOS are trademarks of Apple Inc., registered in the U.S. and other countries. Windows and PowerToys are trademarks of Microsoft Corporation. Zonal is an independent product and is not affiliated with or endorsed by Apple or Microsoft.</p>
+    </div>
+  </footer>
+</body>
+</html>

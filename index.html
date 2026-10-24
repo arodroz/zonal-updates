@@ -1,1 +1,143 @@
-<!doctype html><meta charset="utf-8"><title></title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zonal</title>
+  <meta name="description" content="Zonal is a Mac menu-bar app that brings FancyZones-style Layouts to macOS. Build Zones for each display, then Snap windows by dragging or with hotkeys.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zonal.anteras.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zonal">
+  <meta property="og:title" content="Zonal">
+  <meta property="og:description" content="Zonal is a Mac menu-bar app that brings FancyZones-style Layouts to macOS. Build Zones for each display, then Snap windows by dragging or with hotkeys.">
+  <meta property="og:url" content="https://zonal.anteras.org/">
+  <link rel="stylesheet" href="style.css">
+  <script src="keys.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Zonal home"><svg viewBox="0 0 30 22" aria-hidden="true" focusable="false"><rect x=".75" y=".75" width="28.5" height="20.5" rx="5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="1.5"/><rect x="4" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/><rect x="11.5" y="4" width="7" height="14" rx="1.5" fill="var(--accent)"/><rect x="20.5" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/></svg>Zonal</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+        </ul>
+      </nav>
+      <div class="keys-toggle js-only" role="group" aria-label="Key labels" hidden><button type="button" data-keys="symbols" aria-pressed="true">&#8984;</button><button type="button" data-keys="names" aria-pressed="false">Cmd</button></div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <h1 id="hero-title">Zones for every display. Snap any window with a drag.</h1>
+      <p class="lead">Draw the Zones once, then put any window in place with a Shift-drag or a hotkey. If you know FancyZones from Windows, you already know how Zonal works.</p>
+      <p class="soon">Coming soon</p>
+      <p class="fineprint">macOS 26 or later &middot; 14-day trial, every feature</p>
+      <div class="hero-art">
+        <svg viewBox="0 0 960 590" role="img" aria-labelledby="art-title art-desc">
+          <title id="art-title">Dragging a window into a Zone</title>
+          <desc id="art-desc">A Mac display divided into four numbered Zones. A window is being dragged by its title bar into Zone 2, which is highlighted in blue.</desc>
+          <rect class="art-stand" x="436" y="520" width="88" height="44"/>
+          <rect class="art-stand" x="372" y="556" width="216" height="14" rx="7"/>
+          <rect class="art-bezel" x="40" y="14" width="880" height="516" rx="24"/>
+          <rect class="art-screen" x="56" y="30" width="848" height="484" rx="12"/>
+          <path class="art-menubar" d="M56 42a12 12 0 0 1 12-12h824a12 12 0 0 1 12 12v8H56z"/>
+          <circle class="art-menu-dot" cx="76" cy="40" r="4"/>
+          <rect class="art-menu-dot" x="92" y="37" width="44" height="6" rx="3"/>
+          <rect class="art-menu-dot" x="148" y="37" width="32" height="6" rx="3"/>
+          <rect class="art-menu-dot" x="822" y="37" width="20" height="6" rx="3"/>
+          <rect class="art-menu-dot" x="852" y="37" width="32" height="6" rx="3"/>
+          <rect class="art-zone" x="72" y="70" width="198" height="426" rx="10"/>
+          <rect class="art-zone-sel" x="282" y="70" width="396" height="426" rx="10"/>
+          <rect class="art-zone" x="690" y="70" width="198" height="207" rx="10"/>
+          <rect class="art-zone" x="690" y="289" width="198" height="207" rx="10"/>
+          <text class="art-num" x="171" y="126">1</text>
+          <text class="art-num art-num-sel" x="480" y="126">2</text>
+          <text class="art-num" x="789" y="126">3</text>
+          <text class="art-num" x="789" y="345">4</text>
+          <g transform="rotate(-2.5 480 360)">
+            <rect class="art-win" x="336" y="238" width="300" height="230" rx="10"/>
+            <path class="art-win-bar" d="M336 248a10 10 0 0 1 10-10h280a10 10 0 0 1 10 10v22H336z"/>
+            <circle class="art-win-dot" cx="354" cy="254" r="4.5"/>
+            <circle class="art-win-dot" cx="369" cy="254" r="4.5"/>
+            <circle class="art-win-dot" cx="384" cy="254" r="4.5"/>
+            <rect class="art-win-line" x="356" y="294" width="180" height="8" rx="4"/>
+            <rect class="art-win-line" x="356" y="314" width="240" height="8" rx="4"/>
+            <rect class="art-win-line" x="356" y="334" width="210" height="8" rx="4"/>
+            <rect class="art-win-line" x="356" y="354" width="150" height="8" rx="4"/>
+          </g>
+          <path class="art-cursor" d="M0 0L0 17L4.5 13L7.5 20L10.5 18.7L7.6 12L13 12Z" transform="translate(506 252) scale(1.5)"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="section" aria-labelledby="features-title">
+        <div class="section-head">
+          <h2 id="features-title">Your Layout, one gesture away</h2>
+          <p>A Layout is a set of Zones for one display. Snap a window and it fills a Zone exactly.</p>
+        </div>
+        <ul class="features">
+          <li class="feature">
+            <h3>Drag, then Snap</h3>
+            <p>Hold <kbd>⇧</kbd> while you drag a window and your Zones appear. Let go over one to Snap. Add <kbd>⌃</kbd> to sweep across several Zones and fill them all.</p>
+          </li>
+          <li class="feature">
+            <h3>Hotkeys for the rest</h3>
+            <p>Hold <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd> and press a number to Snap the focused window to that Zone. <kbd>[</kbd> and <kbd>]</kbd> step to the previous or next Zone, and <kbd>`</kbd> switches Layout. Every shortcut can be changed.</p>
+          </li>
+          <li class="feature">
+            <h3>A Layout editor at real size</h3>
+            <p>Split a Zone with a click, drag dividers to resize, and merge neighbors. Each display gets its own Layout, and you edit it at the size you will use it.</p>
+          </li>
+          <li class="feature">
+            <h3>Plays well with macOS</h3>
+            <p>Works across Spaces, with Stage Manager, and alongside the tiling built into macOS. Windows that refuse a Zone's size are centered in it instead of falling off the screen.</p>
+          </li>
+        </ul>
+        <div class="band">
+          <h3>One permission</h3>
+          <p>Zonal asks for Accessibility and nothing else: no Input Monitoring, no Screen Recording. The app is signed with a Developer ID and notarized by Apple.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="how-title">
+        <div class="section-head">
+          <h2 id="how-title">How it works</h2>
+        </div>
+        <ol class="steps row">
+          <li><strong>Grant Accessibility</strong>Zonal needs it to move other apps' windows. It is the only permission.</li>
+          <li><strong>Pick or edit a Layout</strong>Start from a ready-made Layout, or build your own for each display.</li>
+          <li><strong>Shift-drag a window</strong>Release it over a Zone. It Snaps into place.</li>
+        </ol>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <h2 id="closing-title">Try every feature for 14 days</h2>
+        <p>A License covers every 1.x update and works on up to three of your Macs.</p>
+        <p class="soon">Coming soon</p>
+        <p class="fineprint">macOS 26 or later &middot; <a href="licensing.html">How licensing works</a></p>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 Antonio Rodriguez. Questions? <a href="mailto:zonal@anteras.org">zonal@anteras.org</a></p>
+      <p>Mac and macOS are trademarks of Apple Inc., registered in the U.S. and other countries. Windows and PowerToys are trademarks of Microsoft Corporation. Zonal is an independent product and is not affiliated with or endorsed by Apple or Microsoft.</p>
+    </div>
+  </footer>
+</body>
+</html>

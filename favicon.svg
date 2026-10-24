@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .f{fill:#1d1d1f;fill-opacity:.3}.s{stroke:#1d1d1f;stroke-opacity:.6}.a{fill:#0a62d0}
+    @media (prefers-color-scheme:dark){.f{fill:#f2f2f5}.s{stroke:#f2f2f5}.a{fill:#5aa2ff}}
+  </style>
+  <rect class="s" x="2" y="6" width="28" height="20" rx="5" fill="none" stroke-width="2"/>
+  <rect class="f" x="5.5" y="9.5" width="5" height="13" rx="1.5"/>
+  <rect class="a" x="12.5" y="9.5" width="7" height="13" rx="1.5"/>
+  <rect class="f" x="21.5" y="9.5" width="5" height="13" rx="1.5"/>
+</svg>
