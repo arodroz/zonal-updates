@@ -14,6 +14,7 @@
   <meta property="og:url" content="https://zonal.anteras.org/faq.html">
   <link rel="stylesheet" href="style.css">
   <script src="keys.js"></script>
+  <script src="toc.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -48,14 +49,14 @@
 
     <h2 id="getting-started">Getting started</h2>
     <div class="faq">
-      <details>
+      <details id="macos-versions">
         <summary>Which versions of macOS does Zonal support?</summary>
         <div class="answer">
           <!-- spec 2, project.yml MACOSX_DEPLOYMENT_TARGET 26.0 -->
           <p>Zonal needs macOS 26 or later.</p>
         </div>
       </details>
-      <details>
+      <details id="permissions">
         <summary>Does Zonal need any permissions?</summary>
         <div class="answer">
           <!-- ON-6, spec 3.11 -->
@@ -63,7 +64,7 @@
           <p>macOS does not let an app move another app's windows unless you allow it in Privacy &amp; Security &gt; Accessibility. Zonal uses that access to move and resize windows when you Snap them. It does not record your screen or read what you type.</p>
         </div>
       </details>
-      <details>
+      <details id="app-store">
         <summary>Is Zonal on the Mac App Store?</summary>
         <div class="answer">
           <!-- spec 4.7, 3.13 -->
@@ -74,21 +75,21 @@
 
     <h2 id="using-zonal">Using Zonal</h2>
     <div class="faq">
-      <details>
+      <details id="layout-per-display">
         <summary>Can each display have its own Layout?</summary>
         <div class="answer">
           <!-- LD-1, HK-11, spec 3.7 -->
           <p>Yes. Each display has its own Layout, and Zonal remembers it. If you unplug a display and connect it again, it gets its Layout back. Choose a display's Layout from the Zonal menu-bar menu.</p>
         </div>
       </details>
-      <details>
+      <details id="spaces">
         <summary>Does the Layout change when I switch Spaces?</summary>
         <div class="answer">
           <!-- LD-5, spec 3.7 -->
           <p>No. A display keeps the same Layout on every Space.</p>
         </div>
       </details>
-      <details>
+      <details id="change-shortcuts">
         <summary>Can I change the keyboard shortcuts?</summary>
         <div class="answer">
           <!-- HK-4, HK-5, HK-6, HK-9, spec 3.5 -->
@@ -97,14 +98,14 @@
           <p>To change the key you hold while dragging, open Settings &gt; General. You can choose <kbd>⇧</kbd>, <kbd>⌥</kbd> or <kbd>⌘</kbd>, or turn on <strong>Always show Zones</strong> and hold the key to hide them.</p>
         </div>
       </details>
-      <details>
+      <details id="cancel-snap">
         <summary>How do I cancel a Snap while I'm dragging?</summary>
         <div class="answer">
           <!-- DS-3, DS-13, spec 3.1 -->
           <p>Press <kbd>esc</kbd>, or release the <kbd>⇧</kbd> key (or the key you chose in Settings) before you let go of the mouse button. The Zones disappear and the window stays where you drop it.</p>
         </div>
       </details>
-      <details>
+      <details id="other-window-managers">
         <summary>Does Zonal conflict with Rectangle, Magnet or other window managers?</summary>
         <div class="answer">
           <!-- HK-7, spec 3.5 rule 7 -->
@@ -116,7 +117,7 @@
 
     <h2 id="troubleshooting">Troubleshooting</h2>
     <div class="faq">
-      <details>
+      <details id="nothing-happens">
         <summary>Nothing happens when I Shift-drag a window.</summary>
         <div class="answer">
           <!-- DS-6, DS-2, spec 3.1 rule 9, 3.10, LC-3 -->
@@ -130,7 +131,7 @@
           </ol>
         </div>
       </details>
-      <details>
+      <details id="accessibility-missing">
         <summary>I allowed Accessibility, but Zonal says it's missing.</summary>
         <div class="answer">
           <!-- ON-3, ON-4, spec 3.11 -->
@@ -143,7 +144,7 @@
           <p>Zonal picks up the change on its own. You don't need to restart it.</p>
         </div>
       </details>
-      <details>
+      <details id="window-not-filling">
         <summary>A window doesn't fill the Zone.</summary>
         <div class="answer">
           <!-- CW-1, CW-2, CW-7, spec 3.4, verification.md -->
@@ -151,21 +152,21 @@
           <p>A window larger than the display is lined up with the left and top edges of the visible area, so its title bar stays reachable. Choose a larger Zone, or a Layout with wider Zones, if you want the window to fill it.</p>
         </div>
       </details>
-      <details>
+      <details id="terminal-size">
         <summary>Terminal windows are a little smaller or larger than the Zone.</summary>
         <div class="answer">
           <!-- CW-4, CW-6, verification.md -->
           <p>Terminal sizes its windows in whole character cells, so it can't match a Zone to the pixel. In testing, a Snapped Terminal window differed from its Zone by a few points. Zonal centers the window on the Zone, so the leftover space is split evenly.</p>
         </div>
       </details>
-      <details>
+      <details id="preview-title">
         <summary>Preview doesn't move when I drag its title.</summary>
         <div class="answer">
           <!-- DS-12 partial, verification.md -->
           <p>In the middle of Preview's title bar is the document's proxy icon. Dragging it drags the file, not the window. Drag the title bar somewhere else, for example near the left or right edge, with <kbd>⇧</kbd> held.</p>
         </div>
       </details>
-      <details>
+      <details id="stage-manager">
         <summary>How does Zonal work with Stage Manager?</summary>
         <div class="answer">
           <!-- SM-1, SM-2, SM-4, DS-10, spec 3.8, verification.md -->
@@ -173,7 +174,7 @@
           <p>You can Shift-drag a window out of the strip and Snap it.</p>
         </div>
       </details>
-      <details>
+      <details id="macos-tiling">
         <summary>macOS tiles my window when I drag it to a screen edge.</summary>
         <div class="answer">
           <!-- TL-1, TL-2, TL-4, spec 3.9, verification.md -->
@@ -185,7 +186,7 @@
 
     <h2 id="updates-uninstalling">Updates and uninstalling</h2>
     <div class="faq">
-      <details>
+      <details id="how-updates-work">
         <summary>How do updates work?</summary>
         <div class="answer">
           <!-- LC-10, LC-17, spec 3.13 rule 9 -->
@@ -193,7 +194,7 @@
           <p>In Settings &gt; Updates you can turn on <strong>Automatically download and install updates</strong>, which is off by default, and <strong>Include beta versions</strong>. All 1.x updates are free.</p>
         </div>
       </details>
-      <details>
+      <details id="uninstall">
         <summary>How do I uninstall Zonal completely?</summary>
         <div class="answer">
           <!-- LI-2, LC-16, spec 3.12, 3.13, 4.3; paths from LayoutStore.swift, TrialStores.swift, LicenseStores.swift, project.yml -->

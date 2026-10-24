@@ -25,12 +25,15 @@
     .lead           First paragraph under the h1: larger, muted.
     .updated        "Last updated" line for legal pages: <p class="updated">Last updated <time datetime="2026-10-24">24 October 2026</time></p>
     .toc            "On this page" list: <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#id">..</a></li></ol></nav>
+                    A direct child of .doc; from 1360px it sits, sticky, in the left margin.
+                    Pages with a .toc load site/toc.js, which marks the section being read (aria-current).
                     (use <ul> if unnumbered). Put it after the lead.
     .note           Callout: <aside class="note"><p>..</p></aside>. Optional first child <p class="note-title">Title</p>.
     .note.warning   Same with a warning tone (data loss, things that stop working).
     .steps          Numbered step list: <ol class="steps"><li>..</li></ol>. Each li may start with <strong> as the step name.
                     Add .row (class="steps row") for three or four short steps side by side from 720px up (home page).
     .faq            Wrapper for question list: <div class="faq"><details><summary>Question?</summary><div class="answer"><p>..</p></div></details>...</div>
+                    Give each <details> a short id; with site/toc.js in the <head>, a link to #id opens that question.
                     Add the open attribute on a <details> to start expanded. No JavaScript needed.
     table           Style by element. Wrap in <div class="table-wrap" tabindex="0" role="region" aria-label="..."> so it scrolls
                     inside itself on phones. Use <caption>, <thead>, <th scope="col|row">.
@@ -150,7 +153,7 @@ a:hover { color: var(--accent-hover); }
   position: absolute;
   left: 12px;
   top: -80px;
-  z-index: 10;
+  z-index: 20;
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--line);
@@ -161,6 +164,18 @@ a:hover { color: var(--accent-hover); }
 
 /* Header */
 .site-header { border-bottom: 1px solid var(--line); background: var(--bg); }
+/* From 720px up the header stays at the top, frosted; on phones it scrolls away to keep the screen for text. */
+@media (min-width: 720px) {
+  html { scroll-padding-top: 64px; }  /* anchor targets land below the header */
+  .site-header { position: sticky; top: 0; z-index: 10; }
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .site-header {
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      backdrop-filter: saturate(180%) blur(16px);
+    }
+  }
+}
 .site-header .wrap {
   display: flex;
   flex-wrap: wrap;
@@ -295,6 +310,20 @@ pre code { background: none; padding: 0; }
 .doc .toc h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; margin: 0 0 0.6em; }
 .toc ol, .toc ul { margin: 0; padding-left: 1.3em; }
 .toc li { margin-bottom: 0.2em; }
+/* On wide screens the list moves into the left margin and stays in view while the page scrolls. */
+@media (min-width: 1360px) {
+  .doc:has(> .toc) { margin-left: calc(50% - 560px + 256px); }  /* main is .wrap.doc: the list lines up with the header's left edge */
+  .doc > .toc {
+    float: left; width: 208px; margin: 0 0 0 -256px;
+    position: sticky; top: 96px; max-height: calc(100vh - 120px); overflow-y: auto;
+    background: none; border: 0; border-radius: 0; padding: 0;
+  }
+  .toc ol, .toc ul { padding-left: 0; list-style: none; }
+  .toc li { font-size: 0.92rem; line-height: 1.35; margin-bottom: 0.55em; }
+  .toc a { color: var(--muted); text-decoration: none; }
+  .toc a:hover { color: var(--text); }
+  .toc a[aria-current] { color: var(--text); font-weight: 600; }  /* set by toc.js */
+}
 
 .note { background: var(--accent-soft); border: 1px solid transparent; border-left: 3px solid var(--accent); border-radius: var(--radius-sm); padding: 14px 18px; margin: 1.5em 0; }
 .note > :last-child { margin-bottom: 0; }
@@ -437,4 +466,11 @@ figcaption { margin-top: 0.7em; color: var(--muted); font-size: 0.9rem; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* Print: the page's text only. */
+@media print {
+  .skip-link, .site-header, .toc, .keys-toggle, .site-footer nav { display: none !important; }
+  .doc, .doc:has(> .toc) { max-width: none; margin: 0; padding: 0; }
+  a { color: inherit; }
 }
