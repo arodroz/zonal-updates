@@ -35,43 +35,24 @@
       <h1 id="hero-title">Zones for every display. Snap any window with a drag.</h1>
       <p class="lead">Draw the Zones once, then put any window in place with a Shift-drag or a hotkey. If you know FancyZones from Windows, you already know how Zonal works.</p>
       <p class="soon">Coming soon</p>
-      <p class="fineprint">macOS 26 or later &middot; 14-day trial, every feature <span class="nowrap">&middot; <a href="guide.html">Read the guide</a></span></p>
-      <div class="hero-art">
-        <svg viewBox="0 0 960 590" role="img" aria-labelledby="art-title art-desc">
-          <title id="art-title">Dragging a window into a Zone</title>
-          <desc id="art-desc">A Mac display divided into four numbered Zones. A window is being dragged by its title bar into Zone 2, which is highlighted in blue.</desc>
-          <rect class="art-stand" x="436" y="520" width="88" height="44"/>
-          <rect class="art-stand" x="372" y="556" width="216" height="14" rx="7"/>
-          <rect class="art-bezel" x="40" y="14" width="880" height="516" rx="24"/>
-          <rect class="art-screen" x="56" y="30" width="848" height="484" rx="12"/>
-          <path class="art-menubar" d="M56 42a12 12 0 0 1 12-12h824a12 12 0 0 1 12 12v8H56z"/>
-          <circle class="art-menu-dot" cx="76" cy="40" r="4"/>
-          <rect class="art-menu-dot" x="92" y="37" width="44" height="6" rx="3"/>
-          <rect class="art-menu-dot" x="148" y="37" width="32" height="6" rx="3"/>
-          <rect class="art-menu-dot" x="822" y="37" width="20" height="6" rx="3"/>
-          <rect class="art-menu-dot" x="852" y="37" width="32" height="6" rx="3"/>
-          <rect class="art-zone" x="72" y="70" width="198" height="426" rx="10"/>
-          <rect class="art-zone-sel" x="282" y="70" width="396" height="426" rx="10"/>
-          <rect class="art-zone" x="690" y="70" width="198" height="207" rx="10"/>
-          <rect class="art-zone" x="690" y="289" width="198" height="207" rx="10"/>
-          <text class="art-num" x="171" y="126">1</text>
-          <text class="art-num art-num-sel" x="480" y="126">2</text>
-          <text class="art-num" x="789" y="126">3</text>
-          <text class="art-num" x="789" y="345">4</text>
-          <g transform="rotate(-2.5 480 360)">
-            <rect class="art-win" x="336" y="238" width="300" height="230" rx="10"/>
-            <path class="art-win-bar" d="M336 248a10 10 0 0 1 10-10h280a10 10 0 0 1 10 10v22H336z"/>
-            <circle class="art-win-dot" cx="354" cy="254" r="4.5"/>
-            <circle class="art-win-dot" cx="369" cy="254" r="4.5"/>
-            <circle class="art-win-dot" cx="384" cy="254" r="4.5"/>
-            <rect class="art-win-line" x="356" y="294" width="180" height="8" rx="4"/>
-            <rect class="art-win-line" x="356" y="314" width="240" height="8" rx="4"/>
-            <rect class="art-win-line" x="356" y="334" width="210" height="8" rx="4"/>
-            <rect class="art-win-line" x="356" y="354" width="150" height="8" rx="4"/>
-          </g>
-          <path class="art-cursor" d="M0 0L0 17L4.5 13L7.5 20L10.5 18.7L7.6 12L13 12Z" transform="translate(506 252) scale(1.5)"/>
-        </svg>
-      </div>
+      <p class="fineprint">macOS 15 or later (Sequoia) &middot; 14-day trial, every feature <span class="nowrap">&middot; <a href="guide.html">Read the guide</a></span></p>
+      <figure class="hero-demo">
+        <div class="demo-frame">
+          <video id="demo-video" width="1280" height="800" autoplay muted loop playsinline preload="metadata" poster="media/demo-poster.png" aria-label="Demo: windows are Shift-dragged into Zones, one is swept across two Zones with Control, then a Zone is split in the Layout editor and a window is Snapped into it.">
+            <source src="media/demo.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="demo-play" id="demo-play" hidden aria-label="Play the demo video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
+        <figcaption><span class="keys"><kbd>&#8679;</kbd> drag</span> into a Zone, <span class="keys"><kbd>&#8679;</kbd><kbd>&#8963;</kbd> drag</span> across two, then split a Zone with one click.</figcaption>
+      </figure>
+      <script>
+        (function () {
+          var v = document.getElementById("demo-video"), b = document.getElementById("demo-play");
+          if (!v || !b || !window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          v.removeAttribute("autoplay"); v.pause(); v.removeAttribute("loop"); v.controls = false; b.hidden = false;
+          b.addEventListener("click", function () { b.hidden = true; v.loop = true; v.play(); });
+        })();
+      </script>
     </section>
 
     <div class="wrap">
@@ -119,7 +100,7 @@
         <h2 id="closing-title">Try every feature for 14 days</h2>
         <p>A License covers every 1.x update and works on up to three of your Macs.</p>
         <p class="soon">Coming soon</p>
-        <p class="fineprint">macOS 26 or later &middot; <a href="licensing.html">How licensing works</a></p>
+        <p class="fineprint">macOS 15 or later (Sequoia) &middot; <a href="licensing.html">How licensing works</a></p>
       </section>
     </div>
   </main>
