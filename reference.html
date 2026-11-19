@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick reference · Zonal</title>
+  <meta name="description" content="Every Zonal gesture and shortcut on one page, and the words Zonal uses.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zonal.anteras.org/reference.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zonal">
+  <meta property="og:title" content="Quick reference · Zonal">
+  <meta property="og:description" content="Every Zonal gesture and shortcut on one page, and the words Zonal uses.">
+  <meta property="og:url" content="https://zonal.anteras.org/reference.html">
+  <link rel="stylesheet" href="style.css">
+  <script src="keys.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Zonal home"><svg viewBox="0 0 30 22" aria-hidden="true" focusable="false"><rect x=".75" y=".75" width="28.5" height="20.5" rx="5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="1.5"/><rect x="4" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/><rect x="11.5" y="4" width="7" height="14" rx="1.5" fill="var(--accent)"/><rect x="20.5" y="4" width="5.5" height="14" rx="1.5" fill="currentColor" fill-opacity=".3"/></svg>Zonal</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="reference.html" aria-current="page">Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+        </ul>
+      </nav>
+      <div class="keys-toggle js-only" role="group" aria-label="Key labels" hidden><button type="button" data-keys="symbols" aria-pressed="true">&#8984;</button><button type="button" data-keys="names" aria-pressed="false">Cmd</button></div>
+    </div>
+  </header>
+  <main id="main" class="wrap doc">
+    <header class="page-head">
+      <h1>Quick reference</h1>
+      <p class="lead">Every gesture and default shortcut on one page. Print it and keep it next to your keyboard for the first week. The <a href="guide.html">guide</a> explains each one.</p>
+    </header>
+
+    <h2 id="snap">Snap</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Snap gestures">
+      <table class="keys-table">
+        <thead><tr><th scope="col">Do this</th><th scope="col">To</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="keys"><kbd>⇧</kbd> drag</span></th><td>Show the Zones; release over one to Snap the window there.</td></tr>
+          <tr><th scope="row"><span class="keys"><kbd>⇧</kbd><kbd>⌃</kbd> drag</span></th><td>Span: every Zone you cross is added; the window fills them all.</td></tr>
+          <tr><th scope="row">Release <kbd>⇧</kbd>, or <kbd>esc</kbd></th><td>Cancel the Snap during a drag.</td></tr>
+          <tr><th scope="row"><span class="keys"><kbd>⌘</kbd> on the green button</span></th><td>Open the Zone picker; click a Zone to Snap.</td></tr>
+          <tr><th scope="row"><span class="keys"><kbd>⌃</kbd>-click</span> in the picker</th><td>Add Zones to a span; the next plain click Snaps across them.</td></tr>
+          <tr><th scope="row">Drag a shared edge</th><td>Resize two Snapped neighbours together.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="shortcuts">Default shortcuts</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Default shortcuts">
+      <table class="keys-table">
+        <thead><tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>1</kbd> to <kbd>9</kbd></th><td>Snap to that Zone.</td></tr>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>[</kbd></th><td>Previous Zone.</td></tr>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>]</kbd></th><td>Next Zone.</td></tr>
+          <tr><th scope="row"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>`</kbd></th><td>Next Layout on this display.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Change them in Settings &gt; Hotkeys. Zones are numbered top to bottom, then left to right.</p>
+
+    <h2 id="editor">Layout editor</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Editor gestures">
+      <table class="keys-table">
+        <thead><tr><th scope="col">Do this</th><th scope="col">To</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Click a Zone</th><td>Split it across its longer side.</td></tr>
+          <tr><th scope="row"><span class="keys"><kbd>⇧</kbd>-click</span></th><td>Split the other way.</td></tr>
+          <tr><th scope="row">Drag a divider</th><td>Resize, in 5% steps.</td></tr>
+          <tr><th scope="row"><span class="keys"><kbd>⌘</kbd>-click</span>, then <kbd>⌘</kbd><kbd>J</kbd></th><td>Select Zones, then merge them.</td></tr>
+          <tr><th scope="row">Right-click a Zone</th><td>Make Rail, or Remove Rail.</td></tr>
+          <tr><th scope="row"><kbd>⌘</kbd><kbd>Z</kbd> / <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd></th><td>Undo / redo.</td></tr>
+          <tr><th scope="row">Done / <kbd>esc</kbd></th><td>Save / discard.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="rail">The Rail</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="The Rail">
+      <table class="keys-table">
+        <thead><tr><th scope="col">When</th><th scope="col">What happens</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Busy for 20 s</th><td>The session’s window moves to the Rail; its neighbour grows.</td></tr>
+          <tr><th scope="row">Waiting</th><td>The window goes back to its Zone, without taking focus.</td></tr>
+          <tr><th scope="row">Click it</th><td>It goes back at once.</td></tr>
+          <tr><th scope="row">Drag or resize it</th><td>Zonal lets go of it until you Snap it again.</td></tr>
+          <tr><th scope="row">Quit, switch Layout</th><td>Every window in the Rail goes back.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="words">Words Zonal uses</h2>
+    <dl>
+      <dt>Zone</dt><dd>A rectangular region of a display that a window can be Snapped into.</dd>
+      <dt>Layout</dt><dd>A named arrangement of Zones covering one display.</dd>
+      <dt>Snap</dt><dd>To move and resize a window so it exactly fills a Zone.</dd>
+      <dt>Zone picker</dt><dd>A miniature of a display’s Layout, opened from a window’s green button, that Snaps the window to the Zones clicked.</dd>
+      <dt>Shared edge</dt><dd>The line where the Zones of two Snapped windows meet; resizing one window along it resizes the other.</dd>
+      <dt>Rail</dt><dd>A Zone of a Layout where windows whose work needs no attention wait at a smaller size, until they need you again and go back to the Zone they came from.</dd>
+      <dt>Busy</dt><dd>A window whose agent is working and needs nothing from you.</dd>
+      <dt>Waiting</dt><dd>A window whose agent has stopped and needs you: it finished, asks permission, or asks a question.</dd>
+      <dt>Trial</dt><dd>14 days on one Mac with every feature unlocked, before a License is needed.</dd>
+      <dt>License</dt><dd>A purchase that unlocks Zonal for one major version on up to three Macs.</dd>
+      <dt>Activation</dt><dd>One Mac’s claim on a License.</dd>
+    </dl>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="licensing.html">Licensing</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 Antonio Rodriguez. Questions? <a href="mailto:zonal@anteras.org">zonal@anteras.org</a></p>
+      <p>Mac and macOS are trademarks of Apple Inc., registered in the U.S. and other countries. Windows and PowerToys are trademarks of Microsoft Corporation. Zonal is an independent product and is not affiliated with or endorsed by Apple or Microsoft.</p>
+    </div>
+  </footer>
+</body>
+</html>

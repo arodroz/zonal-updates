@@ -75,13 +75,28 @@
             <p>Split a Zone with a click, drag dividers to resize, and merge neighbors. Each display gets its own Layout, and you edit it at the size you will use it.</p>
           </li>
           <li class="feature">
+            <h3>Snap from the green button</h3>
+            <p>Hold <kbd>⌘</kbd> on a window's green button and a miniature of your Layout opens. Click a Zone and the window Snaps there, no drag needed. Made for trackpads.</p>
+          </li>
+          <li class="feature">
+            <h3>Resize side by side</h3>
+            <p>Drag the edge between two Snapped windows and both follow, like panes in one app. No gaps, no overlap, and your Layout stays as it was.</p>
+          </li>
+          <li class="feature">
             <h3>Plays well with macOS</h3>
             <p>Works across Spaces, with Stage Manager, and alongside the tiling built into macOS. Windows that refuse a Zone's size are centered in it instead of falling off the screen.</p>
           </li>
         </ul>
         <div class="band">
           <h3>One permission</h3>
-          <p>Zonal asks for Accessibility and nothing else: no Input Monitoring, no Screen Recording. The app is signed with a Developer ID and notarized by Apple.</p>
+          <p>Zonal asks for Accessibility: no Input Monitoring, no Screen Recording. The optional Rail also asks to control your terminal app, only to find a session's window. The app is signed with a Developer ID and notarized by Apple.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="agents-title">
+        <div class="section-head">
+          <h2 id="agents-title">Running coding agents? Meet the Rail</h2>
+          <p>Mark one Zone as the Rail. When a Claude Code session has been working for 20 seconds, its terminal slides into the Rail, still readable, and its neighbour takes the space. The moment the session needs you, the window is back in its Zone, without stealing focus. One click in Settings connects Claude Code. <a href="guide.html#rail">How the Rail works</a></p>
         </div>
       </section>
 
@@ -90,7 +105,7 @@
           <h2 id="how-title">How it works</h2>
         </div>
         <ol class="steps row">
-          <li><strong>Grant Accessibility</strong>Zonal needs it to move other apps' windows. It is the only permission.</li>
+          <li><strong>Grant Accessibility</strong>Zonal needs it to move other apps' windows. It is the one permission Snapping needs.</li>
           <li><strong>Pick or edit a Layout</strong>Start from a ready-made Layout, or build your own for each display.</li>
           <li><strong>Shift-drag a window</strong>Release it over a Zone. It Snaps into place.</li>
         </ol>

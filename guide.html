@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Guide · Zonal</title>
-  <meta name="description" content="How to set up Zonal, build a Layout and Snap windows into Zones.">
+  <meta name="description" content="How to set up Zonal, pick a Layout for how you work, Snap windows by drag, keyboard or green button, and move Busy agent sessions to the Rail.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://zonal.anteras.org/guide.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Zonal">
   <meta property="og:title" content="Guide · Zonal">
-  <meta property="og:description" content="How to set up Zonal, build a Layout and Snap windows into Zones.">
+  <meta property="og:description" content="How to set up Zonal, pick a Layout for how you work, Snap windows by drag, keyboard or green button, and move Busy agent sessions to the Rail.">
   <meta property="og:url" content="https://zonal.anteras.org/guide.html">
   <link rel="stylesheet" href="style.css">
   <script src="keys.js"></script>
   <script src="toc.js"></script>
+  <script src="clips.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -34,15 +35,22 @@
   <main id="main" class="wrap doc">
     <header class="page-head">
       <h1>Guide</h1>
-      <p class="lead">Set up Zonal, build a Layout and Snap windows into Zones with the mouse or the keyboard.</p>
+      <p class="lead">Zonal gives every display a Layout of Zones and puts each window in one with a single gesture. This guide shows how, and when each way of doing it pays off, so you spend your day working instead of dragging window corners. Everything fits on one printable page in the <a href="reference.html">quick reference</a>.</p>
     </header>
     <nav class="toc" aria-label="On this page">
       <h2>On this page</h2>
       <ol>
+        <li><a href="#idea">The idea in one minute</a></li>
         <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#ways">Three ways to Snap</a></li>
         <li><a href="#mouse">Snapping with the mouse</a></li>
+        <li><a href="#zone-picker">Snapping from the green button</a></li>
         <li><a href="#keyboard">Snapping with the keyboard</a></li>
+        <li><a href="#shared-edge">Resizing windows side by side</a></li>
+        <li><a href="#recipes">Pick a Layout for how you work</a></li>
         <li><a href="#layouts">Layouts</a></li>
+        <li><a href="#rail">Agent sessions and the Rail</a></li>
+        <li><a href="#tips">Get the most out of Zonal</a></li>
         <li><a href="#displays-spaces">Displays and Spaces</a></li>
         <li><a href="#macos-tiling">Stage Manager and macOS tiling</a></li>
         <li><a href="#constrained">Windows that cannot fill a Zone</a></li>
@@ -52,6 +60,21 @@
       </ol>
     </nav>
 
+    <h2 id="idea">The idea in one minute</h2>
+    <p>Windows on a Mac open wherever they like. Over a day they pile up, overlap and hide each other, and every time you want two things side by side you drag corners until they roughly fit. That is a small cost paid hundreds of times.</p>
+    <p>Zonal replaces it with a plan. You decide once how each display should be divided: a <em>Layout</em> made of <em>Zones</em>. From then on, putting a window in its place is one gesture, called a <em>Snap</em>: the window moves and resizes to fill the Zone exactly, with even gaps and nothing overlapping.</p>
+    <div class="pair">
+      <figure class="shot">
+        <picture><source srcset="media/guide/snap-before-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/snap-before.webp" alt="Three app windows overlapping each other at random sizes on the desktop." width="1600" height="1000" loading="lazy"></picture>
+        <figcaption>Before: windows wherever they opened.</figcaption>
+      </figure>
+      <figure class="shot">
+        <picture><source srcset="media/guide/snap-after-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/snap-after.webp" alt="The same three windows side by side, each filling one Zone of the Priority Grid Layout." width="1600" height="1000" loading="lazy"></picture>
+        <figcaption>After three Snaps: every window has its place.</figcaption>
+      </figure>
+    </div>
+    <p>Because the Zones stay the same, your hands learn them. After a few days you stop thinking about where windows go.</p>
+
     <h2 id="getting-started">Getting started</h2>
 
     <h3 id="install">Install</h3>
@@ -59,6 +82,10 @@
 
     <h3 id="first-launch">First launch</h3>
     <p>The first time Zonal opens, it shows a welcome window with three steps. Zonal runs from the menu bar and has no Dock icon.</p>
+    <figure class="shot">
+      <picture><source srcset="media/guide/welcome-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/welcome.webp" alt="Zonal's welcome window, with the steps What Zonal does, Allow Accessibility and Try it." width="900" height="671" loading="lazy" style="max-width: 900px"></picture>
+      <figcaption>The welcome window walks you through the one permission Zonal needs.</figcaption>
+    </figure>
     <ol class="steps">
       <li><strong>What Zonal does.</strong> A short summary: hold <kbd>⇧</kbd> while you drag a window to see the Zones, then let go over one.</li>
       <li><strong>Allow Accessibility.</strong> Zonal needs Accessibility access to move other apps’ windows. Click <strong>Open Settings</strong>, which opens Privacy &amp; Security &gt; Accessibility. Turn on Zonal. The status in the welcome window changes from “Not granted yet” to “Granted” by itself. You do not need to relaunch Zonal.</li>
@@ -67,10 +94,14 @@
     <p>You can reopen the welcome window at any time: choose <strong>Welcome…</strong> from the menu-bar menu.</p>
 
     <h3 id="login">Launch at login</h3>
-    <p>The welcome window has a <strong>Start Zonal at login</strong> checkbox. It is ticked by default. You can change it later in Settings &gt; General; both places always show the same state. If macOS asks you to approve the login item, Zonal says so and offers <strong>Open Login Items</strong>.</p>
+    <p>The welcome window has a <strong>Start Zonal at login</strong> checkbox. It is ticked by default, and it is worth leaving on: Zonal is most useful when it is always there. You can change it later in Settings &gt; General; both places always show the same state. If macOS asks you to approve the login item, Zonal says so and offers <strong>Open Login Items</strong>.</p>
 
     <h3 id="menu-bar">The menu-bar icon</h3>
-    <p>Zonal lives in the menu bar. The icon shows a row of three Zones. While Accessibility is missing, the icon shows a warning triangle instead. Click it to open the menu:</p>
+    <p>Zonal lives in the menu bar. The icon shows a row of three Zones. While Accessibility is missing, the icon shows a warning triangle instead. Click it to open the menu.</p>
+    <figure class="shot">
+      <picture><source srcset="media/guide/menu-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/menu.webp" alt="Zonal's menu-bar menu, open, with the Accessibility status, the License status, one submenu per display and the Zonal commands." width="500" height="600" loading="lazy" style="max-width: 500px"></picture>
+      <figcaption>The menu-bar menu. Each display has its own submenu for its Layout.</figcaption>
+    </figure>
     <ul>
       <li>Accessibility status. If access is missing, <strong>Grant Accessibility Access…</strong> appears.</li>
       <li>License status: the days left in your Trial, or Licensed. Once the Trial ends, <strong>Buy Zonal…</strong> appears.</li>
@@ -81,36 +112,93 @@
       <li><strong>About Zonal</strong></li>
       <li><strong>Check for Updates…</strong></li>
       <li><strong>Settings…</strong> (<kbd>⌘</kbd><kbd>,</kbd>)</li>
-      <li><strong>Quit</strong> (<kbd>⌘</kbd><kbd>Q</kbd>)</li>
+      <li><strong>Quit</strong> (<kbd>⌘</kbd><kbd>Q</kbd>). Before it quits, Zonal sends windows in the <a href="#rail">Rail</a> back to their Zones and puts back the macOS tiling settings it <a href="#edge-tiling">turned off</a>.</li>
     </ul>
 
+    <h2 id="ways">Three ways to Snap</h2>
+    <p>Every Snap ends the same way, so pick the gesture that suits what your hands are doing at that moment. Most people use all three.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Ways to Snap">
+      <table>
+        <caption>Which way to Snap</caption>
+        <thead>
+          <tr><th scope="col">Way</th><th scope="col">How</th><th scope="col">Best when</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row"><a href="#mouse">Drag</a></th><td>Hold <kbd>⇧</kbd> while you drag a window, let go over a Zone.</td><td>You are already moving the window with the mouse, or you want to see the Zones while you choose.</td></tr>
+          <tr><th scope="row"><a href="#zone-picker">Green button</a></th><td>Hold <kbd>⌘</kbd> on the green button, click a Zone in the picker.</td><td>You use a trackpad and dragging is tiring, or you want to Snap without moving the window first.</td></tr>
+          <tr><th scope="row"><a href="#keyboard">Keyboard</a></th><td><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd> and a Zone number.</td><td>Your hands are on the keyboard, for example right after opening a new window.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
     <h2 id="mouse">Snapping with the mouse</h2>
-    <p>A <em>Snap</em> moves and resizes a window so it exactly fills a Zone.</p>
+    <aside class="why">
+      <p class="why-title">Why use it</p>
+      <p>It is the most natural way to start: you drag windows anyway, and holding one key turns that drag into a precise placement. You see every Zone before you choose, so there is nothing to remember.</p>
+    </aside>
     <ol class="steps">
       <li><strong>Start dragging a window.</strong> Drag it by its title bar.</li>
       <li><strong>Hold <kbd>⇧</kbd><span class="when-symbols"> Shift</span>.</strong> An overlay appears on the display under your pointer. It shows the display’s Layout, with each Zone numbered. The Zone under the pointer is highlighted.</li>
       <li><strong>Move over the Zone you want.</strong> If the pointer is in a gap between Zones, Zonal selects the nearest Zone. If the pointer is outside the usable area of the display, such as over the menu bar or the Dock, no Zone is selected.</li>
       <li><strong>Release the mouse button.</strong> The window Snaps to the highlighted Zone.</li>
     </ol>
+    <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-snap-poster.webp" aria-label="Screen recording: a person holds Shift and drags two windows by their title bars. The overlay shows the three numbered Zones of the Priority Grid Layout, and each window Snaps into the Zone where it is released."><source src="media/guide/clip-snap.mp4" type="video/mp4"></video><figcaption>Hold <kbd>⇧</kbd>, drag, let go over a Zone: the window Snaps into it. The key badge in the corner shows what is held.</figcaption></figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/snap-overlay-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/snap-overlay.webp" alt="A window being dragged with Shift held. The overlay shows three numbered Zones and the middle one is highlighted." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>Hold <kbd>⇧</kbd> during a drag and the Zones appear. Let go over the highlighted one.</figcaption>
+    </figure>
     <p>If you move the pointer to another display, the overlay moves with it and shows that display’s Layout.</p>
+    <p>For your first few drags without the activation key, a small label follows the pointer to remind you which key to hold. It names the key you chose in Settings, and it goes away for good after your first Snap, or after three drags.</p>
+    <figure class="shot">
+      <picture><source srcset="media/guide/first-drag-hint-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/first-drag-hint.webp" alt="A small dark label next to the pointer during a drag, reading Hold Shift to snap into Zones." width="800" height="500" loading="lazy" style="max-width: 800px"></picture>
+      <figcaption>The first-drag hint, shown only until you have Snapped once.</figcaption>
+    </figure>
 
     <h3 id="cancel">Cancel a Snap</h3>
     <p>Release <kbd>⇧</kbd> before you release the mouse button, or press <kbd>esc</kbd>. The overlay hides and the window stays where you drop it. Dragging without the activation key never shows the overlay. Resizing a window or selecting text never shows it either.</p>
 
     <h3 id="span">Span several Zones</h3>
+    <p>Sometimes one window deserves more room for a while: a wide spreadsheet, a timeline, a long diff. Rather than make a new Layout, let the window cover several Zones.</p>
     <p>Hold <span class="keys"><kbd>⇧</kbd><kbd>⌃</kbd></span> <span class="when-symbols">(Shift and <kbd>⌃</kbd> Control) </span>while you drag. Every Zone the pointer crosses is added to the selection. When you release the mouse button, the window fills the smallest rectangle that contains all the selected Zones, including the gaps between them.</p>
+    <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-span-poster.webp" aria-label="Screen recording: a window is dragged with Shift held across a 3 Columns Layout. When Control is added, Zone 2 and Zone 3 are both highlighted, and the window fills both when it is released."><source src="media/guide/clip-span.mp4" type="video/mp4"></video><figcaption>Add <kbd>⌃</kbd> and every Zone you cross joins the selection. The window fills them all.</figcaption></figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/span-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/span.webp" alt="A window being dragged with Shift and Control held across a 3 Columns Layout. Zones 2 and 3 are both highlighted." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>With <kbd>⌃</kbd> added, every Zone you cross joins the selection.</figcaption>
+    </figure>
     <p>If you release <kbd>⌃</kbd> before the mouse button, the selection collapses to the Zone under the pointer. Spanning is limited to one display: if the pointer enters another display, the selection starts over.</p>
 
     <h3 id="activation-key">Change the activation key</h3>
     <p>The activation key is <kbd>⇧</kbd> by default. To change it, open Settings &gt; General.</p>
     <ul>
-      <li><strong>Activation key</strong> offers Shift, <span class="keys"><kbd>⌥</kbd><span class="when-symbols"> Option</span></span> and <span class="keys"><kbd>⌘</kbd><span class="when-symbols"> Command</span></span>. <kbd>⌃</kbd> is not offered because it is the span key.</li>
-      <li><strong>Always show Zones (hold the key to suppress)</strong> shows the overlay on every window drag. The activation key then hides it for that drag.</li>
-      <li><strong>Also show Zones while a mouse side button is held</strong> lets the Back or Forward button of your mouse work like the activation key. It is Off by default. Browsers may also go back or forward when the button is pressed over them, and mouse utilities that remap the button can hide it from Zonal, so the button is an extra trigger beside the key.</li>
+      <li><strong>Activation key</strong> offers Shift, <span class="keys"><kbd>⌥</kbd><span class="when-symbols"> Option</span></span> and <span class="keys"><kbd>⌘</kbd><span class="when-symbols"> Command</span></span>. <kbd>⌃</kbd> is not offered because it is the span key. Pick another key if an app you use already gives <kbd>⇧</kbd>-drag a meaning, such as constrained moves in a design tool.</li>
+      <li><strong>Always show Zones (hold the key to suppress)</strong> shows the overlay on every window drag. The activation key then hides it for that drag. Turn it on if almost every drag you make ends in a Snap.</li>
+      <li><strong>Also show Zones while a mouse side button is held</strong> lets the Back or Forward button of your mouse work like the activation key, so you can Snap with one hand. It is Off by default. Browsers may also go back or forward when the button is pressed over them, and mouse utilities that remap the button can hide it from Zonal, so the button is an extra trigger beside the key.</li>
     </ul>
     <p>To span, hold <kbd>⌃</kbd> together with the activation key (<span class="keys"><kbd>⌥</kbd><kbd>⌃</kbd></span> or <span class="keys"><kbd>⌘</kbd><kbd>⌃</kbd></span>). With <strong>Always show Zones</strong> on, <kbd>⌃</kbd> alone spans. The span key cannot be changed.</p>
 
+    <h2 id="zone-picker">Snapping from the green button</h2>
+    <aside class="why">
+      <p class="why-title">Why use it</p>
+      <p>On a trackpad, holding a key while dragging a window across the screen is the hardest gesture there is. The Zone picker needs no drag at all: point at the window’s green button and click where it should go. It is also the quickest way to Snap a window that is far from where it belongs.</p>
+    </aside>
+    <p>Hold <kbd>⌘</kbd><span class="when-symbols"> (Command)</span> and rest the pointer on a window’s green button. After a moment, the <em>Zone picker</em> opens under the button: a miniature of the display’s Layout, with the same Zone numbers and the Layout’s name as a caption.</p>
+    <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-zone-picker-poster.webp" aria-label="Screen recording: Command is held while the pointer rests on a window's green button. The Zone picker opens, the pointer moves onto Zone 2, a blue preview shows where the window will land, and a click Snaps the window there."><source src="media/guide/clip-zone-picker.mp4" type="video/mp4"></video><figcaption>Hold <kbd>⌘</kbd> on the green button, point at a Zone to preview it, click to Snap.</figcaption></figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/zone-picker-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/zone-picker.webp" alt="The Zone picker open under a window's green button, showing a miniature Layout. The pointer is on one Zone, and a preview shows where the window will land." width="900" height="600" loading="lazy" style="max-width: 900px"></picture>
+      <figcaption>The Zone picker. Hovering a Zone previews where the window will land.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Snap.</strong> Click a Zone. Hovering a Zone first shows where the window will land.</li>
+      <li><strong>Span.</strong> <kbd>⌃</kbd>-click Zones to add them to a selection, then click once more without <kbd>⌃</kbd> to Snap the window across all of them. You can also press on one Zone, sweep across others, and release.</li>
+      <li><strong>Close.</strong> Move the pointer away, or press <kbd>esc</kbd>. You can let go of <kbd>⌘</kbd> once the picker is open.</li>
+    </ul>
+    <p>Without <kbd>⌘</kbd>, the green button shows the macOS tile menu as usual. Windows with a custom title bar and no standard green button get no picker. To turn the picker off, clear <strong>Zone picker</strong> in Settings &gt; General.</p>
+
     <h2 id="keyboard">Snapping with the keyboard</h2>
+    <aside class="why">
+      <p class="why-title">Why use it</p>
+      <p>When you are typing, reaching for the mouse to arrange a window breaks your flow. With shortcuts, a new window goes to its place in the time it takes to press four keys, and because the Zones are numbered the same way every day, the combinations become muscle memory: your main work is always Zone 2, your notes always Zone 3.</p>
+    </aside>
     <p>Shortcuts act on the focused window of the frontmost app, on the display that holds the center of the window.</p>
     <div class="table-wrap" tabindex="0" role="region" aria-label="Default shortcuts">
       <table class="keys-table">
@@ -127,19 +215,91 @@
       </table>
     </div>
     <p class="small"><span class="when-symbols"><kbd>⌃</kbd> Control, <kbd>⌥</kbd> Option, <kbd>⇧</kbd> Shift. </span><span class="js-only" hidden>Use the Key labels switch in the header to show names instead of symbols. </span>Keys such as <kbd>[</kbd>, <kbd>]</kbd> and <kbd>`</kbd> are shown for your current keyboard layout. If your keyboard is labelled Ctrl, Alt and Win, turn on <strong>Show key names instead of symbols</strong> in Settings &gt; General, and Zonal writes keys by name too.</p>
+    <p>Zones are numbered in reading order: top to bottom, then left to right. The numbers are the ones you see in the overlay, so a glance at it while dragging teaches you the shortcuts.</p>
 
     <h3 id="change-shortcuts">Change or clear a shortcut</h3>
     <p>Open Settings &gt; Hotkeys. Each action has its own row: Zone 1 to Zone 9, Previous Zone, Next Zone and Next Layout.</p>
+    <figure class="shot">
+      <picture><source srcset="media/guide/settings-hotkeys-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/settings-hotkeys.webp" alt="Settings, Hotkeys tab: one row per action with its shortcut, and the Hyper and Restore defaults buttons." width="520" height="580" loading="lazy" style="max-width: 520px"></picture>
+      <figcaption>Settings &gt; Hotkeys. Click a shortcut, then press the new one.</figcaption>
+    </figure>
     <ol class="steps">
       <li>Click the shortcut.</li>
       <li>Press the new combination. The new shortcut works at once, and the old one stops.</li>
     </ol>
     <p>Press <kbd>esc</kbd> to cancel, or <kbd>delete</kbd> to clear the shortcut. You can also click <strong>Clear</strong> next to it. A cleared action shows “Not set” and does nothing.</p>
     <p>Every shortcut needs <kbd>⌃</kbd> or <kbd>⌘</kbd>. macOS does not deliver a shortcut that uses only <kbd>⇧</kbd> or <kbd>⌥</kbd> as modifiers, so Zonal refuses it with “A shortcut needs <kbd>⌃</kbd> or <kbd>⌘</kbd>.” Zonal also refuses a combination another Zonal action already uses, and tells you which one.</p>
-    <p>Two buttons set every shortcut at once. <strong>Hyper (<kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>⌘</kbd>)</strong> adds <kbd>⌘</kbd> to all of the default combinations. <strong>Restore defaults</strong> returns to the table above.</p>
+    <p>Two buttons set every shortcut at once. <strong>Hyper (<kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>⌘</kbd>)</strong> adds <kbd>⌘</kbd> to all of the default combinations; use it if you have mapped Caps Lock to a Hyper key, or if another app already takes the defaults. <strong>Restore defaults</strong> returns to the table above.</p>
 
     <h3 id="conflicts">When another window manager is running</h3>
     <p>If an app such as Rectangle, Magnet or Moom is running, Settings &gt; Hotkeys and the welcome window show a warning. macOS delivers a shortcut shared by two apps to both of them, so pick combinations the other app does not use. The warning disappears when the other app quits.</p>
+
+    <h2 id="shared-edge">Resizing windows side by side</h2>
+    <aside class="why">
+      <p class="why-title">Why use it</p>
+      <p>A Layout is a starting point, not a cage. When the code needs more width for a moment, drag the line between two windows and both follow, the way panes do inside one app. You rebalance in one gesture instead of resizing one window, then the other, then fixing the gap.</p>
+    </aside>
+    <p>When two Snapped windows sit in neighbouring Zones, drag the edge where they meet and both windows resize together: the neighbour follows as you drag, so there is no gap and no overlap. Every Snapped window along that edge follows, for example two stacked windows beside a tall one. A corner drag moves the windows along both of its edges.</p>
+    <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-shared-edge-poster.webp" aria-label="Screen recording: the edge between two Snapped windows is dragged to the right and then back. The window on the other side follows, so the two never overlap and the gap stays the same."><source src="media/guide/clip-shared-edge.mp4" type="video/mp4"></video><figcaption>Drag the edge between two Snapped windows: the neighbour follows, in both directions.</figcaption></figure>
+    <div class="pair">
+      <figure class="shot">
+        <picture><source srcset="media/guide/shared-edge-before-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/shared-edge-before.webp" alt="Two Snapped windows side by side, each half of the display." width="1600" height="1000" loading="lazy"></picture>
+        <figcaption>Two windows Snapped side by side.</figcaption>
+      </figure>
+      <figure class="shot">
+        <picture><source srcset="media/guide/shared-edge-after-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/shared-edge-after.webp" alt="The same two windows after the edge between them was dragged to the right: the left one is wider, the right one narrower, with the same gap." width="1600" height="1000" loading="lazy"></picture>
+        <figcaption>Drag the edge between them: the neighbour follows.</figcaption>
+      </figure>
+    </div>
+    <ul>
+      <li>Only the windows change. The Layout stays as it is, and the next Snap uses the original Zones. Snap a window again to return to the plan.</li>
+      <li>A neighbour stops when it reaches its own minimum size. Your drag is never blocked, so the windows may overlap from there.</li>
+      <li>Two windows stop resizing together once either one is moved, closed or Snapped elsewhere, or when the display’s Layout changes.</li>
+    </ul>
+    <p>To turn it off, clear <strong>Resize neighbouring windows together</strong> in Settings &gt; General.</p>
+
+    <h2 id="recipes">Pick a Layout for how you work</h2>
+    <p>The best Layout follows two things: the shape of the display and what you do on it. Some starting points, all of which you can build in a minute (see <a href="#layouts">Layouts</a>). Zonal comes with the first five.</p>
+    <div class="recipes">
+      <div class="recipe">
+        <svg viewBox="0 0 160 100" role="img" aria-label="Two equal columns."><rect class="z z-main" x="4" y="4" width="74" height="92" rx="3"/><rect class="z" x="82" y="4" width="74" height="92" rx="3"/></svg>
+        <h3>2 Columns: laptops</h3>
+        <p>On a 13 to 16 inch screen, two windows is the most that stays readable. Work on the left, reference on the right: code and documentation, an email and the calendar, a draft and its sources.</p>
+        <p><strong>Tip:</strong> span both Zones when one window needs the whole screen for a while.</p>
+      </div>
+      <div class="recipe">
+        <svg viewBox="0 0 160 100" role="img" aria-label="Priority Grid: a narrow column, a wide center column, and a narrow column."><rect class="z" x="4" y="4" width="36" height="92" rx="3"/><rect class="z z-main" x="44" y="4" width="72" height="92" rx="3"/><rect class="z" x="120" y="4" width="36" height="92" rx="3"/></svg>
+        <h3>Priority Grid: wide and ultrawide</h3>
+        <p>On a wide display, the far edges are uncomfortable to read for long. Keep your main window in the center, straight ahead, and put chat, music or a terminal at the sides where a glance is enough.</p>
+        <p><strong>Tip:</strong> it is the default for ultrawide displays.</p>
+      </div>
+      <div class="recipe">
+        <svg viewBox="0 0 160 100" role="img" aria-label="Three equal columns."><rect class="z" x="4" y="4" width="48" height="92" rx="3"/><rect class="z z-main" x="56" y="4" width="48" height="92" rx="3"/><rect class="z" x="108" y="4" width="48" height="92" rx="3"/></svg>
+        <h3>3 Columns: 27 inch and 4K</h3>
+        <p>Three equal windows for work that compares things: a design, its spec and the build; three documents; a browser, an editor and a preview.</p>
+        <p><strong>Tip:</strong> span two columns for the window you are actively editing.</p>
+      </div>
+      <div class="recipe">
+        <svg viewBox="0 0 160 100" role="img" aria-label="A portrait display divided into two rows."><rect class="z z-main" x="52" y="4" width="56" height="45" rx="3"/><rect class="z" x="52" y="51" width="56" height="45" rx="3"/></svg>
+        <h3>2 Rows: portrait displays</h3>
+        <p>A rotated display is made for long, narrow things: logs, chat threads, a web page, a PDF. Stack two of them.</p>
+        <p><strong>Tip:</strong> it is the default for portrait displays.</p>
+      </div>
+      <div class="recipe">
+        <svg viewBox="0 0 160 100" role="img" aria-label="A two by two grid."><rect class="z z-main" x="4" y="4" width="74" height="45" rx="3"/><rect class="z" x="82" y="4" width="74" height="45" rx="3"/><rect class="z" x="4" y="51" width="74" height="45" rx="3"/><rect class="z" x="82" y="51" width="74" height="45" rx="3"/></svg>
+        <h3>2×2 Grid: calls and dashboards</h3>
+        <p>Four windows you watch more than you type in: a video call, its notes, the shared document and the chat; or four dashboards.</p>
+      </div>
+      <div class="recipe">
+        <svg viewBox="0 0 160 100" role="img" aria-label="An editor on the left, two stacked terminals in the middle and a narrow Rail on the right."><rect class="z z-main" x="4" y="4" width="68" height="92" rx="3"/><rect class="z" x="76" y="4" width="48" height="45" rx="3"/><rect class="z" x="76" y="51" width="48" height="45" rx="3"/><rect class="z-rail" x="128" y="4" width="28" height="92" rx="3"/></svg>
+        <h3>Agent workstation: coding with agents</h3>
+        <p>Your editor on the left, one terminal per agent session in the middle, and a narrow <a href="#rail">Rail</a> on the right. Sessions that are working move to the Rail on their own, and come back when they need you.</p>
+        <p><strong>Build it:</strong> Columns template, then split and mark the Rail in the editor.</p>
+      </div>
+    </div>
+    <aside class="note">
+      <p>Give one display two Layouts for two modes, for example 2 Columns for focused work and 2×2 Grid for meetings, and switch between them with <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>`</kbd>.</p>
+    </aside>
 
     <h2 id="layouts">Layouts</h2>
     <p>A <em>Layout</em> is a named arrangement of Zones that covers one display. The Zones never overlap and always cover the whole display.</p>
@@ -147,34 +307,185 @@
 
     <h3 id="layouts-window">The Layouts window</h3>
     <p>Choose <strong>Edit Layouts…</strong> from the menu-bar menu, or click <strong>Open Layouts Window</strong> in Settings &gt; Layouts. Your Layouts are listed on the left. Select one to change it on the right.</p>
+    <figure class="shot">
+      <picture><source srcset="media/guide/layouts-window-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/layouts-window.webp" alt="The Layouts window: the list of Layouts on the left, and the selected Layout's name, spacing, preview and display assignment on the right." width="780" height="640" loading="lazy" style="max-width: 780px"></picture>
+      <figcaption>The Layouts window.</figcaption>
+    </figure>
     <ul>
       <li><strong>Create.</strong> Click <strong>New Layout</strong>, choose a Template (Columns, Rows, Grid or Priority Grid), set the number of columns or rows from 1 to 6, and click the <strong>Create</strong> button, which carries the Layout’s name.</li>
-      <li><strong>Rename.</strong> Edit the <strong>Name</strong> field.</li>
-      <li><strong>Spacing.</strong> The <strong>Spacing</strong> slider sets the gap between Zones and at the edges of the display, from 0 to 24 points.</li>
+      <li><strong>Rename.</strong> Edit the <strong>Name</strong> field. A name that says what the Layout is for, such as “Meetings”, is easier to pick from the menu than one that says its shape.</li>
+      <li><strong>Spacing.</strong> The <strong>Spacing</strong> slider sets the gap between Zones and at the edges of the display, from 0 to 24 points. Small gaps make it easier to see where one window ends; 0 gives the most room on a small screen.</li>
       <li><strong>Delete.</strong> Click the trash button below the list. The last remaining Layout cannot be deleted. If a display uses the Layout you delete, that display switches to the first remaining Layout.</li>
       <li><strong>Assign.</strong> Under <strong>Displays</strong>, choose a Layout for each connected display. You can also do this from the menu-bar menu.</li>
     </ul>
     <p>Name, spacing and display changes apply at once.</p>
 
     <h3 id="editor">The full-screen editor</h3>
-    <p>To change the Zones themselves, select the Layout in the Layouts window and click <strong>Edit on</strong> followed by the display’s name, for example <strong>Edit on Built-in Retina Display</strong>. The editor covers that display, so you work at real size.</p>
+    <p>To change the Zones themselves, select the Layout in the Layouts window and click <strong>Edit on</strong> followed by the display’s name, for example <strong>Edit on Built-in Retina Display</strong>. The editor covers that display, so you work at real size and see exactly how big each Zone will be.</p>
+    <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-editor-poster.webp" aria-label="Screen recording: in the full-screen editor a click on Zone 1 splits it into two stacked Zones, numbered 1 and 4. The Undo button then restores the single Zone."><source src="media/guide/clip-editor.mp4" type="video/mp4"></video><figcaption>Click a Zone to split it. Undo takes the split back.</figcaption></figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/editor-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/editor.webp" alt="The full-screen Layout editor covering a display, with four numbered Zones and the Done and Cancel buttons." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>The full-screen editor. Click to split, drag a divider to resize.</figcaption>
+    </figure>
     <ul>
       <li><strong>Split a Zone.</strong> Click it. The Zone splits in two at the midpoint of its longer side: a wide Zone becomes two side-by-side Zones, a tall Zone becomes two stacked Zones. <kbd>⇧</kbd>-click splits the other way.</li>
       <li><strong>Resize.</strong> Drag a divider. It moves in steps of 5%, and no Zone can become smaller than 5% of the display in either direction. A split that would make a Zone smaller than that is refused.</li>
       <li><strong>Merge.</strong> <kbd>⌘</kbd>-click two or more neighboring Zones to select them, then click <strong>Merge</strong> (<span class="keys"><kbd>⌘</kbd><kbd>J</kbd></span>). The Zones must form a rectangle together; otherwise Zonal refuses.</li>
       <li><strong>Numbers.</strong> After every edit, the Zones are renumbered in reading order, top to bottom and then left to right. Those numbers are the ones the overlay and the Zone shortcuts use.</li>
-      <li><strong>Undo and redo.</strong> <span class="keys"><kbd>⌘</kbd><kbd>Z</kbd></span> undoes the last edit. <span class="keys"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd></span> redoes it. The history ends when you leave the editor.</li>
+      <li><strong>Rail.</strong> Right-click a Zone and choose <strong>Make Rail</strong> to make it the Layout’s <a href="#rail">Rail</a>. A Layout has at most one; choosing it for another Zone moves it. <strong>Remove Rail</strong> turns it back into an ordinary Zone. A Layout with a single Zone cannot have a Rail.</li>
+      <li><strong>Undo and redo.</strong> <span class="keys"><kbd>⌘</kbd><kbd>Z</kbd></span> or the <strong>Undo</strong> button undoes the last edit. <span class="keys"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd></span> or <strong>Redo</strong> redoes it. The history ends when you leave the editor.</li>
     </ul>
     <p>Click <strong>Done</strong> to save the Layout. Press <kbd>esc</kbd> or click <strong>Cancel</strong> to discard your edits and leave the Layout as it was. You return to the Layouts window either way.</p>
     <aside class="note">
       <p>The editor and the Layouts window stay available after your Trial ends. Snapping and shortcuts do not. See <a href="licensing.html">Licensing</a>.</p>
     </aside>
 
+    <h2 id="rail">Agent sessions and the Rail</h2>
+    <aside class="why">
+      <p class="why-title">Why use it</p>
+      <p>When you run several coding agents at once, such as Claude Code, most of them are working at any moment and only one or two need you. Yet each terminal takes the same space, and you keep scanning them to find the one that is waiting. The Rail does the sorting for you: windows that are working shrink to the side, where you can still watch them scroll, and the window that needs you comes back to full size in its place. The space goes to the work that needs your attention.</p>
+    </aside>
+    <p>A session is <em>Busy</em> while the agent works and needs nothing from you. It is <em>Waiting</em> when the agent has stopped and needs you: it finished, asks permission, or asks a question.</p>
+    <p>After a session has been Busy for 20 seconds, its window moves into the Layout’s <em>Rail</em>: a Zone set aside for windows that need no attention, where the window stays readable at a smaller size. The window next to the Zone it left grows into the space. When the session is Waiting, the window goes back to its Zone and the neighbour shrinks back. Nothing overlaps, and the window that comes back does not take focus, so it never interrupts what you are typing.</p>
+    <figure>
+      <svg viewBox="0 0 720 200" role="img" aria-label="Three stages. First, an editor, two agent terminals and an empty Rail. After agent 1 has been Busy for 20 seconds, its terminal is in the Rail and agent 2's terminal has grown into the emptied Zone. When agent 1 is Waiting, everything is back in place.">
+        <g>
+          <rect class="d-frame" x="0" y="20" width="200" height="125" rx="6"/>
+          <rect class="d-win" x="6" y="26" width="88" height="113" rx="3"/><text class="d-text" x="50" y="86" text-anchor="middle">Editor</text>
+          <rect class="d-hot" x="100" y="26" width="54" height="54" rx="3"/><text class="d-on-accent" x="127" y="57" text-anchor="middle">Agent 1</text>
+          <rect class="d-win" x="100" y="85" width="54" height="54" rx="3"/><text class="d-text" x="127" y="116" text-anchor="middle">Agent 2</text>
+          <rect class="d-rail" x="160" y="26" width="34" height="113" rx="3"/><text class="d-small" x="177" y="86" text-anchor="middle">Rail</text>
+          <text class="d-small" x="100" y="170" text-anchor="middle">Both agents need you</text>
+        </g>
+        <g>
+          <path class="d-arrow" d="M208 82 H250"/><path class="d-arrowhead" d="M250 77 L258 82 L250 87 Z"/>
+          <text class="d-small" x="233" y="70" text-anchor="middle">Busy 20 s</text>
+        </g>
+        <g>
+          <rect class="d-frame" x="260" y="20" width="200" height="125" rx="6"/>
+          <rect class="d-win" x="266" y="26" width="88" height="113" rx="3"/><text class="d-text" x="310" y="86" text-anchor="middle">Editor</text>
+          <rect class="d-win" x="360" y="26" width="54" height="113" rx="3"/><text class="d-text" x="387" y="86" text-anchor="middle">Agent 2</text>
+          <rect class="d-rail" x="420" y="26" width="34" height="113" rx="3"/>
+          <rect class="d-hot" x="422" y="28" width="30" height="109" rx="2"/><text class="d-on-accent" x="437" y="86" text-anchor="middle">1</text>
+          <text class="d-small" x="360" y="170" text-anchor="middle">Agent 1 works in the Rail;</text>
+          <text class="d-small" x="360" y="184" text-anchor="middle">Agent 2 gets its space</text>
+        </g>
+        <g>
+          <path class="d-arrow" d="M468 82 H510"/><path class="d-arrowhead" d="M510 77 L518 82 L510 87 Z"/>
+          <text class="d-small" x="493" y="70" text-anchor="middle">Waiting</text>
+        </g>
+        <g>
+          <rect class="d-frame" x="520" y="20" width="200" height="125" rx="6"/>
+          <rect class="d-win" x="526" y="26" width="88" height="113" rx="3"/><text class="d-text" x="570" y="86" text-anchor="middle">Editor</text>
+          <rect class="d-hot" x="620" y="26" width="54" height="54" rx="3"/><text class="d-on-accent" x="647" y="57" text-anchor="middle">Agent 1</text>
+          <rect class="d-win" x="620" y="85" width="54" height="54" rx="3"/><text class="d-text" x="647" y="116" text-anchor="middle">Agent 2</text>
+          <rect class="d-rail" x="680" y="26" width="34" height="113" rx="3"/>
+          <text class="d-small" x="620" y="170" text-anchor="middle">Agent 1 is back, without</text>
+          <text class="d-small" x="620" y="184" text-anchor="middle">taking focus</text>
+        </g>
+      </svg>
+      <figcaption>The Rail at work: a Busy session moves aside, and comes back the moment it needs you.</figcaption>
+    </figure>
+    <p>Here is the same story on a real screen:</p>
+    <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-rail-poster.webp" aria-label="Screen recording: the session agent-1 has been Busy for 20 seconds, a label says 20 s later, and its terminal moves into the Rail on the right while the terminal agent-2 grows to fill the middle column. When agent-1 is Waiting, both terminals go back to their Zones."><source src="media/guide/clip-rail.mp4" type="video/mp4"></video><figcaption>A Busy session moves to the Rail and its neighbour grows. When the session is Waiting, everything goes back. The wait is sped up here.</figcaption></figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/rail-home-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/rail-home.webp" alt="An editor window on the left and two terminal windows stacked in the middle, all Snapped. The narrow Rail on the right is empty." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>1. Every session in its Zone.</figcaption>
+    </figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/rail-busy-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/rail-busy.webp" alt="The first terminal now sits in the narrow Rail on the right, still showing its output. The second terminal has grown to fill the whole middle column." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>2. The first session has been Busy for 20 seconds: it moved to the Rail, and its neighbour grew.</figcaption>
+    </figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/rail-two-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/rail-two.webp" alt="Both terminals sit in the Rail, one above the other in equal slices." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>3. Both sessions are Busy: they share the Rail, the oldest on top.</figcaption>
+    </figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/rail-back-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/rail-back.webp" alt="The first terminal is back in its Zone in the middle column, at full size." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>4. The first session is Waiting: its window is back in its Zone, ready for your answer.</figcaption>
+    </figure>
+
+    <h3 id="rail-setup">Set it up</h3>
+    <ol class="steps">
+      <li><strong>Add a Rail to a Layout.</strong> In the <a href="#editor">full-screen editor</a>, right-click a Zone, often a narrow one at the side, and choose <strong>Make Rail</strong>. The Rail is drawn in orange with a dashed outline and has no number.</li>
+      <li><strong>Connect Claude Code.</strong> In Settings &gt; General, click <strong>Connect Claude Code</strong>. Zonal adds its hooks to <code>~/.claude/settings.json</code>, which applies to every session, and keeps a copy of the previous file next to it as <code>settings.json.zonal-backup</code>. Sessions that are already running pick up the change by themselves.</li>
+      <li><strong>Snap each terminal window</strong> to a Zone of that Layout. Zonal only moves Snapped windows, and it learns each session’s Zone from where its window is Snapped.</li>
+      <li><strong>Allow Automation.</strong> The first time a session sends a signal, macOS asks whether Zonal may control your terminal app. Zonal uses it only to ask the terminal which window runs the session. Click <strong>Allow</strong>.</li>
+    </ol>
+    <figure class="shot">
+      <picture><source srcset="media/guide/editor-rail-menu-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/editor-rail-menu.webp" alt="The full-screen editor with a right-click menu open over a narrow Zone on the right, offering Make Rail." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>Right-click a Zone in the editor and choose <strong>Make Rail</strong>.</figcaption>
+    </figure>
+    <figure class="shot">
+      <picture><source srcset="media/guide/settings-general-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/settings-general.webp" alt="Settings, General tab, with the Move Busy agent windows to the Rail toggle, the Claude Code button and the hook entries." width="520" height="816" loading="lazy" style="max-width: 520px"></picture>
+      <figcaption>Settings &gt; General: the Rail toggle and the Claude Code connection.</figcaption>
+    </figure>
+    <p><strong>Move Busy agent windows to the Rail</strong> in Settings &gt; General is on by default. Turn it off to pause the Rail without disconnecting Claude Code. If you prefer to edit <code>~/.claude/settings.json</code> yourself, open <strong>Hook entries for ~/.claude/settings.json</strong> under the button and click <strong>Copy</strong>. <strong>Disconnect Claude Code</strong> removes Zonal’s hooks and leaves your other hooks alone.</p>
+    <p>Supported terminals: Terminal, iTerm2 and Ghostty 1.3 or later. In Ghostty, Zonal finds the window by its folder and title, so two Ghostty windows in the same folder with the same title are left alone. Terminals inside an editor, such as VS Code or Cursor, cannot be moved, since one window holds many terminals.</p>
+    <p>In the overlay, the Rail is drawn the same way and is never a drop target, the Zone shortcuts skip it, and the Zone picker does not offer it: only Busy sessions go there.</p>
+    <figure class="shot">
+      <picture><source srcset="media/guide/overlay-rail-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/overlay-rail.webp" alt="The drag overlay on a Layout with a Rail: the numbered Zones, and the Rail drawn in orange with a dashed outline and no number." width="1600" height="1000" loading="lazy"></picture>
+      <figcaption>The Rail in the overlay: orange, dashed, no number.</figcaption>
+    </figure>
+
+    <h3 id="rail-use">While you work</h3>
+    <ul>
+      <li><strong>Several Busy sessions</strong> share the Rail in equal slices, the oldest on top. A slice is never shorter than 160 points; a window that does not fit stays in its Zone until a slice frees up.</li>
+      <li><strong>The neighbour that grows</strong> is a Snapped window whose Zones and the emptied Zone together form a rectangle. If several qualify, the one you used most recently grows. If none does, the Zone stays empty.</li>
+      <li><strong>Click a window in the Rail</strong> to bring it back to its Zone at once. Use this when you want to read a session closely, or when a session stops without telling Zonal, for example when you interrupt Claude Code with <kbd>esc</kbd>.</li>
+      <li><strong>Drag or resize a window in the Rail</strong> to take it back yourself. Zonal leaves it where you put it, and the neighbour returns to its own Zone. Snap the window again to hand it back to Zonal.</li>
+      <li><strong>Zonal waits for you.</strong> A window you are dragging, or that the pointer is over, moves once you let go or move away.</li>
+      <li><strong>If the Zone is taken.</strong> When a session is Waiting but another Snapped window now fills its Zone, the window stays in the Rail until the Zone is free. Click it to bring it back anyway.</li>
+      <li><strong>Resumed sessions.</strong> When you resume a session in a new terminal window, for example with <code>claude --resume</code>, Zonal Snaps the window to the session’s Zone, if that Zone is free on the same display and Layout. A brand-new session is never moved until you Snap it once. Zonal forgets a session after 30 days without a signal.</li>
+    </ul>
+    <p>Every window in the Rail goes back to its Zone when you turn the toggle off, disconnect Claude Code, switch or edit the display’s Layout, connect or disconnect a display, or choose <strong>Quit</strong> from the menu-bar menu. If Zonal restarts for an update or after a crash, the windows stay in the Rail, and the next signal or a click brings them back.</p>
+    <aside class="note">
+      <p class="note-title">Make the Rail work for you</p>
+      <p>Put the Rail on the side of the display you look at least, and make it 15 to 20% wide: narrow enough to give the space back, wide enough to read the last lines of output. Two to four sessions per Rail keep each slice readable. On a second display, a whole column can be the Rail for sessions you only want to keep an eye on.</p>
+    </aside>
+
+    <h3 id="rail-not-moving">When a window does not move</h3>
+    <p>Zonal leaves a session’s window alone unless all of these hold:</p>
+    <ul>
+      <li>Claude Code is connected, and <strong>Move Busy agent windows to the Rail</strong> is on.</li>
+      <li>The window is Snapped, and its display’s current Layout has a Rail.</li>
+      <li>The terminal is supported, and Zonal may control it in System Settings &gt; Privacy &amp; Security &gt; Automation. When it may not, Settings &gt; General says so under the toggle.</li>
+      <li>The session has been Busy for 20 seconds without a pause.</li>
+    </ul>
+
+    <h3 id="rail-url">Other agents and scripts</h3>
+    <p>Any agent or script can drive the Rail with Zonal’s URL scheme, for example a long build, a test run or another agent tool. Open the URL with <code>open -g</code> so Zonal stays in the background:</p>
+    <ul>
+      <li><code>zonal://busy</code>: the session is Busy.</li>
+      <li><code>zonal://waiting</code>: the session needs you.</li>
+      <li><code>zonal://resume</code>: a session resumed in a new window.</li>
+    </ul>
+    <p>Each URL needs <code>session</code>, a stable id for the session, and <code>term</code>, the terminal’s <code>TERM_PROGRAM</code>: <code>Apple_Terminal</code>, <code>iTerm.app</code> or <code>ghostty</code>. It finds the window with <code>tty</code> (Terminal and iTerm2, for example <code>ttys003</code>), <code>termsession</code> (iTerm2’s <code>ITERM_SESSION_ID</code>) or <code>cwd</code> (the working folder, Ghostty). Values are URL-encoded, and Zonal ignores items it does not know. For example, to send a long build to the Rail and bring it back when it ends:</p>
+    <pre><code>s=build-$$; t=$(tty | sed 's|/dev/||')
+open -g "zonal://busy?session=$s&amp;term=$TERM_PROGRAM&amp;tty=$t"
+make release
+open -g "zonal://waiting?session=$s&amp;term=$TERM_PROGRAM&amp;tty=$t"</code></pre>
+
+    <h2 id="tips">Get the most out of Zonal</h2>
+    <ul>
+      <li><strong>Give each display a job.</strong> A Layout that matches what you do there beats a clever one. The laptop screen for communication, the big display for the main work, the portrait one for logs and reading.</li>
+      <li><strong>Keep your main work in the same Zone.</strong> If your main window is always Zone 2, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>2</kbd> becomes a reflex for “back to work”.</li>
+      <li><strong>Use two Layouts per display for two modes</strong>, and switch with <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>`</kbd>. The next Snap uses the new Layout, so nothing jumps around when you switch.</li>
+      <li><strong>Span instead of making more Layouts.</strong> One window needs more room for ten minutes? Span it over two Zones, then Snap it back.</li>
+      <li><strong>Rebalance with the shared edge</strong> instead of editing the Layout when the change is temporary.</li>
+      <li><strong>Turn on Always show Zones</strong> if nearly every drag ends in a Snap: you then hold a key only for the rare drag that should not Snap.</li>
+      <li><strong>On a trackpad, use the green button.</strong> <kbd>⌘</kbd> and a click is less effort than a held key and a long drag.</li>
+      <li><strong>On a mouse with side buttons, Snap one-handed</strong> with <strong>Also show Zones while a mouse side button is held</strong>.</li>
+      <li><strong>Turn off macOS tiling while Zonal runs</strong> if you see macOS’s own tile preview flash during your drags.</li>
+      <li><strong>Keep the <a href="reference.html">quick reference</a> by your keyboard</strong> for the first week. After that, you won’t need it.</li>
+      <li><strong>Running agents?</strong> Add a Rail. Even with two sessions, the one that needs you is always the big one.</li>
+    </ul>
+
     <h2 id="displays-spaces">Displays and Spaces</h2>
     <ul>
       <li><strong>One Layout per display.</strong> Each display has its own Layout, which you assign in the menu-bar menu or the Layouts window.</li>
       <li><strong>New displays.</strong> The first time Zonal sees a display, it assigns a Layout by the display’s shape: Priority Grid for ultrawide displays (21:9 or wider), 2 Rows for portrait displays, and 2 Columns for everything else. You can change it at any time, and Zonal never resets it.</li>
-      <li><strong>Reconnecting.</strong> Unplug a display and plug it back in, and it gets its Layout back.</li>
+      <li><strong>Reconnecting.</strong> Unplug a display and plug it back in, and it gets its Layout back. A laptop that moves between a desk and a meeting room finds the right Layout on each display by itself.</li>
       <li><strong>Resolution changes.</strong> Zones scale with the display when its resolution or orientation changes. Zonal does not move windows you have already Snapped; macOS repositions them.</li>
       <li><strong>Spaces.</strong> A display uses the same Layout on every Space.</li>
     </ul>
@@ -184,7 +495,8 @@
     <p>When Stage Manager is on and its strip of recent apps is visible, Zonal leaves room for the strip: the Zones, the overlay and every Snap stay clear of it. When the strip hides itself, the Zones use the whole display. You do not need to relaunch Zonal after you turn Stage Manager on or off.</p>
 
     <h3 id="edge-tiling">macOS window tiling</h3>
-    <p>macOS can also tile a window when you drag it to a screen edge. If that setting is on, the welcome window shows a one-time tip, and Settings &gt; General shows a note with an <strong>Open Desktop &amp; Dock</strong> button. Zonal does not change the setting for you.</p>
+    <p>macOS can also tile a window when you drag it to a screen edge. If that setting is on, the welcome window shows a one-time tip, and Settings &gt; General shows a note with an <strong>Open Desktop &amp; Dock</strong> button.</p>
+    <p>You can also turn on <strong>Turn off macOS tiling while Zonal runs</strong>, in Settings &gt; General or in the welcome window’s tip. It is off by default. While it is on, macOS does not tile windows dragged to an edge or with <kbd>⌥</kbd> held. Zonal puts your macOS settings back as they were when you turn it off or quit Zonal, and at the next launch if Zonal stopped unexpectedly. A setting you changed yourself in System Settings meanwhile is left as you set it.</p>
     <p>When both react to a drag, Zonal wins: while the overlay is visible, Zonal Snaps the window when you release, over any macOS tile. The macOS preview may flash briefly. The default Zonal shortcuts avoid the <kbd>fn</kbd><kbd>⌃</kbd> shortcuts macOS uses for tiling.</p>
 
     <h2 id="constrained">Windows that cannot fill a Zone</h2>
@@ -195,7 +507,7 @@
     <p>Zonal Snaps standard windows. It never Snaps dialogs, sheets, floating panels and palettes, windows in macOS full-screen mode, or its own windows other than the welcome window. For these windows, dragging shows no overlay and shortcuts do nothing.</p>
 
     <h2 id="permissions">Permissions</h2>
-    <p>Zonal needs one permission: Accessibility, so that it can move other apps’ windows. It does not need Input Monitoring or Screen Recording, and it does not show the system prompt when it launches. The first time you click <strong>Open Settings</strong> in the welcome window, macOS shows its prompt once and Zonal appears in the Accessibility list.</p>
+    <p>Zonal needs one permission: Accessibility, so that it can move other apps’ windows. If you use the <a href="#rail">Rail</a>, it also asks for Automation for each terminal app, so it can find the window that runs a session. It does not need Input Monitoring or Screen Recording, and it does not show the system prompt when it launches. The first time you click <strong>Open Settings</strong> in the welcome window, macOS shows its prompt once and Zonal appears in the Accessibility list.</p>
     <aside class="note warning">
       <p class="note-title">If you turn Accessibility off</p>
       <p>Within a few seconds, Snapping and shortcuts stop and the overlay hides. The menu-bar icon shows a warning triangle, and the welcome window opens at the Accessibility step. When you grant access again, Zonal resumes by itself.</p>
@@ -209,7 +521,7 @@
     </ul>
 
     <h2 id="more-help">License and troubleshooting</h2>
-    <p>Zonal includes a 14-day Trial with every feature. For the Trial, buying a License and moving one between Macs, see <a href="licensing.html">Licensing</a>. If something does not work as described here, start with the <a href="faq.html">FAQ</a>.</p>
+    <p>Zonal includes a 14-day Trial with every feature. When you buy a License, paste the key from your receipt in Settings &gt; License and click <strong>Activate</strong>. Before you move Zonal to another Mac, click <strong>Deactivate this Mac</strong> there to free one of your three Activations. For the details, see <a href="licensing.html">Licensing</a>. If something does not work as described here, start with the <a href="faq.html">FAQ</a>.</p>
   </main>
   <footer class="site-footer">
     <div class="wrap">

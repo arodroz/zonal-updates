@@ -40,6 +40,16 @@
                     Class .keys-table on the <table> gives the first column a narrow no-wrap look (for key/action lists).
     figure          <figure><svg role="img" aria-label="..">..</svg><figcaption>..</figcaption></figure>. Inline SVG scales to the column;
                     give it a viewBox and no width/height. Use currentColor and the theme variables, never hard-coded colors.
+    .why            "Why use it" callout that opens a feature section: <aside class="why"><p class="why-title">Why use it</p><p>..</p></aside>.
+    figure.shot     Screenshot: <figure class="shot"><img src="media/guide/x.webp" alt=".." width=".." height=".." loading="lazy"><figcaption>..</figcaption></figure>.
+                    The image gets a hairline frame and soft shadow. Always give width and height (no layout shift).
+    figure.shot.clip  A looping clip: <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-x-poster.webp" aria-label=".."><source src="media/guide/clip-x.mp4" type="video/mp4"></video><figcaption>..</figcaption></figure>.
+                    With site/clips.js (defer) it plays only while in view, and not at all under prefers-reduced-motion (a click toggles it).
+                    Dark screenshots: wrap the img in <picture><source srcset="media/guide/x-dark.webp" media="(prefers-color-scheme: dark)"><img ..></picture>.
+    .pair           Two figures side by side from 720px up (before/after): <div class="pair"><figure class="shot">..</figure><figure class="shot">..</figure></div>.
+    .recipes        Grid of .recipe cards (1 column on phones, 2 from 720px): <div class="recipes"><div class="recipe"><svg ..></svg><h3>..</h3><p>..</p></div></div>.
+                    The svg is a mini Layout (viewBox 0 0 160 100) using .z (Zone), .z-main (accent Zone) and .z-rail (Rail) classes.
+    .diagram        Concept diagram SVG classes: .d-frame (display), .d-zone, .d-win, .d-hot (accent), .d-rail, .d-text, .d-arrow.
     kbd             Keycap. One <kbd> per key: <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⇧</kbd><kbd>1</kbd>.
     kbd, one glyph per kbd   Every modifier symbol (⌃ ⌥ ⇧ ⌘) must sit alone in its own <kbd>, in running text and in
                     combinations alike: <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd>, never <kbd>⇧⌘Z</kbd> or a bare glyph.
@@ -342,6 +352,38 @@ thead th { border-top: 0; background: var(--surface-2); font-weight: 600; white-
 figure { margin: 2em 0; }
 figure svg { display: block; width: 100%; height: auto; }
 figcaption { margin-top: 0.7em; color: var(--muted); font-size: 0.9rem; }
+
+.doc dt { font-weight: 650; margin-top: 0.9em; }
+.doc dd { margin: 0.2em 0 0; }
+
+.why { border-left: 3px solid var(--accent); padding: 2px 0 2px 16px; margin: 0.5em 0 1.5em; }
+.why > :last-child { margin-bottom: 0; }
+.why-title { font-size: 0.8rem; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.3em; }
+
+figure.shot picture { display: block; }
+figure.shot video { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08); background: var(--surface-2); cursor: pointer; }
+figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08); background: var(--surface-2); }
+.pair { display: grid; gap: 16px; margin: 2em 0; }
+.pair > figure { margin: 0; }
+@media (min-width: 720px) { .pair { grid-template-columns: 1fr 1fr; } }
+
+.recipes { display: grid; gap: 16px; margin: 1.5em 0 2em; }
+@media (min-width: 720px) { .recipes { grid-template-columns: 1fr 1fr; } }
+.recipe { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+.recipe svg { display: block; width: 100%; max-width: 220px; height: auto; margin-bottom: 10px; }
+.recipe h3 { margin: 0 0 0.3em; font-size: 1.05rem; }
+.recipe p { margin: 0 0 0.5em; font-size: 0.95rem; }
+.recipe p:last-child { margin-bottom: 0; }
+.z, .d-zone { fill: currentColor; fill-opacity: 0.12; stroke: currentColor; stroke-opacity: 0.35; stroke-width: 1; }
+.z-main, .d-hot { fill: var(--accent); fill-opacity: 0.85; stroke: var(--accent); stroke-width: 1; }
+.z-rail, .d-rail { fill: #e8890c; fill-opacity: 0.15; stroke: #e8890c; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.d-frame { fill: none; stroke: currentColor; stroke-opacity: 0.5; stroke-width: 1.5; }
+.d-win { fill: var(--surface); stroke: currentColor; stroke-opacity: 0.55; stroke-width: 1.2; }
+.d-text { fill: currentColor; font: 600 11px var(--font); }
+.d-small { fill: currentColor; fill-opacity: 0.7; font: 10px var(--font); }
+.d-on-accent { fill: var(--on-accent); font: 600 11px var(--font); }
+.d-arrow { fill: none; stroke: currentColor; stroke-opacity: 0.6; stroke-width: 1.5; }
+.d-arrowhead { fill: currentColor; fill-opacity: 0.6; }
 
 .steps { list-style: none; counter-reset: step; padding: 0 !important; margin: 1.5em 0; display: grid; gap: 16px; }
 .steps > li { counter-increment: step; position: relative; margin: 0; padding-left: 3rem; min-height: 2.1rem; }
