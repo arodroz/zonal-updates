@@ -9,7 +9,7 @@
       <footer class="site-footer"><div class="wrap"> ... </div></footer>
     </body>
   Head: charset, viewport, <title>Page · Zonal</title>, meta description, favicon.svg,
-  canonical https://zonal.anteras.org/<file>, og:title, og:description. Links between pages are relative.
+  canonical https://zonal.anteras.app/<file>, og:title, og:description. Links between pages are relative.
   Mark the current page's nav link with aria-current="page" (header and footer).
 
   THEME
