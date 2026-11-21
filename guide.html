@@ -343,7 +343,7 @@
     <h2 id="rail">Agent sessions and the Rail</h2>
     <aside class="why">
       <p class="why-title">Why use it</p>
-      <p>When you run several coding agents at once, such as Claude Code, most of them are working at any moment and only one or two need you. Yet each terminal takes the same space, and you keep scanning them to find the one that is waiting. The Rail does the sorting for you: windows that are working shrink to the side, where you can still watch them scroll, and the window that needs you comes back to full size in its place. The space goes to the work that needs your attention.</p>
+      <p>When you run several coding agents at once, such as Claude Code or Codex, most of them are working at any moment and only one or two need you. Yet each terminal takes the same space, and you keep scanning them to find the one that is waiting. The Rail does the sorting for you: windows that are working shrink to the side, where you can still watch them scroll, and the window that needs you comes back to full size in its place. The space goes to the work that needs your attention.</p>
     </aside>
     <p>A session is <em>Busy</em> while the agent works and needs nothing from you. It is <em>Waiting</em> when the agent has stopped and needs you: it finished, asks permission, or asks a question.</p>
     <p>After a session has been Busy for 20 seconds, its window moves into the Layout’s <em>Rail</em>: a Zone set aside for windows that need no attention, where the window stays readable at a smaller size. The window next to the Zone it left grows into the space. When the session is Waiting, the window goes back to its Zone and the neighbour shrinks back. Nothing overlaps, and the window that comes back does not take focus, so it never interrupts what you are typing.</p>
@@ -408,7 +408,7 @@
     <h3 id="rail-setup">Set it up</h3>
     <ol class="steps">
       <li><strong>Add a Rail to a Layout.</strong> In the <a href="#editor">full-screen editor</a>, right-click a Zone, often a narrow one at the side, and choose <strong>Make Rail</strong>. The Rail is drawn in orange with a dashed outline and has no number.</li>
-      <li><strong>Connect Claude Code.</strong> In Settings &gt; General, click <strong>Connect Claude Code</strong>. Zonal adds its hooks to <code>~/.claude/settings.json</code>, which applies to every session, and keeps a copy of the previous file next to it as <code>settings.json.zonal-backup</code>. Sessions that are already running pick up the change by themselves.</li>
+      <li><strong>Connect Claude Code or Codex.</strong> In Settings &gt; General, click <strong>Connect Claude Code</strong> or <strong>Connect Codex</strong>, or both. For Claude Code, Zonal adds its hooks to <code>~/.claude/settings.json</code>, which applies to every session, and keeps a copy of the previous file next to it as <code>settings.json.zonal-backup</code>. Sessions that are already running pick up the change by themselves. For Codex, Zonal adds its hooks to <code>~/.codex/hooks.json</code> and keeps a copy as <code>hooks.json.zonal-backup</code>. Codex runs new hooks only after you trust them, so run <code>/hooks</code> in Codex once and trust Zonal’s hooks. Zonal never changes Codex’s trust settings itself.</li>
       <li><strong>Snap each terminal window</strong> to a Zone of that Layout. Zonal only moves Snapped windows, and it learns each session’s Zone from where its window is Snapped.</li>
       <li><strong>Allow Automation.</strong> The first time a session sends a signal, macOS asks whether Zonal may control your terminal app. Zonal uses it only to ask the terminal which window runs the session. Click <strong>Allow</strong>.</li>
     </ol>
@@ -417,10 +417,10 @@
       <figcaption>Right-click a Zone in the editor and choose <strong>Make Rail</strong>.</figcaption>
     </figure>
     <figure class="shot">
-      <picture><source srcset="media/guide/settings-general-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/settings-general.webp" alt="Settings, General tab, with the Move Busy agent windows to the Rail toggle, the Claude Code button and the hook entries." width="520" height="816" loading="lazy" style="max-width: 520px"></picture>
-      <figcaption>Settings &gt; General: the Rail toggle and the Claude Code connection.</figcaption>
+      <picture><source srcset="media/guide/settings-general-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/guide/settings-general.webp" alt="Settings, General tab, with the Move Busy agent windows to the Rail toggle, Disconnect Claude Code, Set up Claude Code by hand, Connect Codex and Set up Codex by hand." width="520" height="902" loading="lazy" style="max-width: 520px"></picture>
+      <figcaption>Settings &gt; General: the Rail toggle and the buttons that connect Claude Code and Codex.</figcaption>
     </figure>
-    <p><strong>Move Busy agent windows to the Rail</strong> in Settings &gt; General is on by default. Turn it off to pause the Rail without disconnecting Claude Code. If you prefer to edit <code>~/.claude/settings.json</code> yourself, open <strong>Hook entries for ~/.claude/settings.json</strong> under the button and click <strong>Copy</strong>. <strong>Disconnect Claude Code</strong> removes Zonal’s hooks and leaves your other hooks alone.</p>
+    <p><strong>Move Busy agent windows to the Rail</strong> in Settings &gt; General is on by default. Turn it off to pause the Rail without disconnecting the agent. If you prefer to edit the files yourself, open <strong>Set up Claude Code by hand</strong> (for <code>~/.claude/settings.json</code>) or <strong>Set up Codex by hand</strong> (for <code>~/.codex/hooks.json</code>) and click <strong>Copy</strong>. <strong>Disconnect Claude Code</strong> and <strong>Disconnect Codex</strong> remove Zonal’s hooks and leave your other hooks alone.</p>
     <p>Supported terminals: Terminal, iTerm2 and Ghostty 1.3 or later. In Ghostty, Zonal finds the window by its folder and title, so two Ghostty windows in the same folder with the same title are left alone. Terminals inside an editor, such as VS Code or Cursor, cannot be moved, since one window holds many terminals.</p>
     <p>In the overlay, the Rail is drawn the same way and is never a drop target, the Zone shortcuts skip it, and the Zone picker does not offer it: only Busy sessions go there.</p>
     <figure class="shot">
@@ -432,13 +432,13 @@
     <ul>
       <li><strong>Several Busy sessions</strong> share the Rail in equal slices, the oldest on top. A slice is never shorter than 160 points; a window that does not fit stays in its Zone until a slice frees up.</li>
       <li><strong>The neighbour that grows</strong> is a Snapped window whose Zones and the emptied Zone together form a rectangle. If several qualify, the one you used most recently grows. If none does, the Zone stays empty. If the window that grew is an agent session that stays Busy too, it moves to the Rail like the other, and its own Zone becomes the emptied one.</li>
-      <li><strong>Click a window in the Rail</strong> to bring it back to its Zone at once. Use this when you want to read a session closely, or when a session stops without telling Zonal, for example when you interrupt Claude Code with <kbd>esc</kbd>.</li>
+      <li><strong>Click a window in the Rail</strong> to bring it back to its Zone at once. Use this when you want to read a session closely, or when a session stops without telling Zonal, for example when you interrupt Claude Code with <kbd>esc</kbd>, which sends no signal (Codex does send one), or when a Codex turn ends in an error.</li>
       <li><strong>Drag or resize a window in the Rail</strong> to take it back yourself. Zonal leaves it where you put it, and the neighbour returns to its own Zone. Snap the window again to hand it back to Zonal.</li>
       <li><strong>Zonal waits for you.</strong> A window you are dragging, or that the pointer is over, moves once you let go or move away.</li>
       <li><strong>If the Zone is taken.</strong> When a session is Waiting but another Snapped window now fills its Zone, the window stays in the Rail until the Zone is free. Click it to bring it back anyway.</li>
-      <li><strong>Resumed sessions.</strong> When you resume a session in a new terminal window, for example with <code>claude --resume</code>, Zonal Snaps the window to the session’s Zone, if that Zone is free on the same display and Layout. A brand-new session is never moved until you Snap it once. Zonal forgets a session after 30 days without a signal.</li>
+      <li><strong>Resumed sessions.</strong> When you resume a session in a new terminal window, for example with <code>claude --resume</code> or <code>codex resume</code>, Zonal Snaps the window to the session’s Zone, if that Zone is free on the same display and Layout. A brand-new session is never moved until you Snap it once. Zonal forgets a session after 30 days without a signal.</li>
     </ul>
-    <p>Every window in the Rail goes back to its Zone when you turn the toggle off, disconnect Claude Code, switch or edit the display’s Layout, connect or disconnect a display, or choose <strong>Quit</strong> from the menu-bar menu. If Zonal restarts for an update or after a crash, the windows stay in the Rail, and the next signal or a click brings them back.</p>
+    <p>Every window in the Rail goes back to its Zone when you turn the toggle off, disconnect Claude Code or Codex, switch or edit the display’s Layout, connect or disconnect a display, or choose <strong>Quit</strong> from the menu-bar menu. If Zonal restarts for an update or after a crash, the windows stay in the Rail, and the next signal or a click brings them back.</p>
     <aside class="note">
       <p class="note-title">Make the Rail work for you</p>
       <p>Put the Rail on the side of the display you look at least, and make it 15 to 20% wide: narrow enough to give the space back, wide enough to read the last lines of output. Two to four sessions per Rail keep each slice readable. On a second display, a whole column can be the Rail for sessions you only want to keep an eye on.</p>
@@ -447,7 +447,7 @@
     <h3 id="rail-not-moving">When a window does not move</h3>
     <p>Zonal leaves a session’s window alone unless all of these hold:</p>
     <ul>
-      <li>Claude Code is connected, and <strong>Move Busy agent windows to the Rail</strong> is on.</li>
+      <li>Claude Code or Codex is connected (and, for Codex, you trusted Zonal’s hooks with <code>/hooks</code>), and <strong>Move Busy agent windows to the Rail</strong> is on.</li>
       <li>The window is Snapped, and its display’s current Layout has a Rail.</li>
       <li>The terminal is supported, and Zonal may control it in System Settings &gt; Privacy &amp; Security &gt; Automation. When it may not, Settings &gt; General says so under the toggle.</li>
       <li>The session has been Busy for 20 seconds without a pause.</li>

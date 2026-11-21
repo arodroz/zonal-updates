@@ -130,21 +130,21 @@
         <summary>What is the Rail, and do I need it?</summary>
         <div class="answer">
           <!-- spec 3.18 -->
-          <p>The Rail is for people who run coding agents such as Claude Code in several terminal windows. It is a Zone where the windows of sessions that are working wait at a smaller size; a session that needs you comes back to its Zone by itself. If you don't run agents, you can ignore it: nothing happens until you mark a Zone as the Rail and connect Claude Code. See <a href="guide.html#rail">Agent sessions and the Rail</a>.</p>
+          <p>The Rail is for people who run coding agents such as Claude Code or Codex in several terminal windows. It is a Zone where the windows of sessions that are working wait at a smaller size; a session that needs you comes back to its Zone by itself. If you don't run agents, you can ignore it: nothing happens until you mark a Zone as the Rail and connect Claude Code or Codex. See <a href="guide.html#rail">Agent sessions and the Rail</a>.</p>
         </div>
       </details>
       <details id="rail-privacy">
         <summary>Does the Rail read my terminal or my Claude Code conversations?</summary>
         <div class="answer">
           <!-- ADR 0003, spec 3.18 rules 3, 4, 10; privacy.html -->
-          <p>No. Claude Code's hooks tell Zonal only that a session is busy or waiting, with the session's ID, terminal and working folder, so Zonal can find its window. Zonal never reads what your terminal shows, what you type or what the agent writes, and nothing leaves your Mac. Details are in the <a href="privacy.html#stored">privacy policy</a>.</p>
+          <p>No. The hooks of Claude Code and Codex tell Zonal only that a session is busy or waiting, with the session's ID, terminal and working folder, so Zonal can find its window. Zonal never reads what your terminal shows, what you type or what the agent writes, and nothing leaves your Mac. Details are in the <a href="privacy.html#stored">privacy policy</a>.</p>
         </div>
       </details>
       <details id="rail-other-agents">
-        <summary>Does the Rail work with agents other than Claude Code?</summary>
+        <summary>Does the Rail work with agents other than Claude Code and Codex?</summary>
         <div class="answer">
           <!-- ADR 0003 -->
-          <p>Yes, if they can run a command when they start and stop working. Zonal listens for <code>zonal://busy</code> and <code>zonal://waiting</code> URLs, which any tool or script can open. The guide shows <a href="guide.html#rail-url">the URL format and an example</a>.</p>
+          <p>Claude Code and Codex are built in: connect them in Settings &gt; General. Others work too, if they can run a command when they start and stop working. Zonal listens for <code>zonal://busy</code> and <code>zonal://waiting</code> URLs, which any tool or script can open. The guide shows <a href="guide.html#rail-url">the URL format and an example</a>.</p>
         </div>
       </details>
       <details id="other-window-managers">
@@ -228,8 +228,8 @@
         <summary>My agent's window does not move to the Rail.</summary>
         <div class="answer">
           <!-- spec 3.18 rules 2, 4, 5, 8, 13; RL-9, RL-18 -->
-          <p>Zonal moves a session's window only when Claude Code is connected and <strong>Move Busy agent windows to the Rail</strong> is on in Settings &gt; General, the window is Snapped, its display's Layout has a Rail, and the session has been Busy for 20 seconds. The terminal must be Terminal, iTerm2 or Ghostty 1.3 or later, and Zonal must be allowed to control it in System Settings &gt; Privacy &amp; Security &gt; Automation; Settings &gt; General says so when it is not.</p>
-          <p>If a window stays in the Rail after you interrupt Claude Code with <kbd>esc</kbd>, click it: Claude Code sends no signal on an interrupt. See <a href="guide.html#rail">Agent sessions and the Rail</a>.</p>
+          <p>Zonal moves a session's window only when Claude Code or Codex is connected (for Codex, you also trusted Zonal's hooks with <code>/hooks</code>) and <strong>Move Busy agent windows to the Rail</strong> is on in Settings &gt; General, the window is Snapped, its display's Layout has a Rail, and the session has been Busy for 20 seconds. The terminal must be Terminal, iTerm2 or Ghostty 1.3 or later, and Zonal must be allowed to control it in System Settings &gt; Privacy &amp; Security &gt; Automation; Settings &gt; General says so when it is not.</p>
+          <p>If a window stays in the Rail after you interrupt Claude Code with <kbd>esc</kbd>, or after a Codex turn ends in an error, click it: Claude Code sends no signal on an interrupt, and Codex sends none for an error. See <a href="guide.html#rail">Agent sessions and the Rail</a>.</p>
         </div>
       </details>
     </div>
@@ -251,7 +251,7 @@
           <p>If you're moving your License to another Mac, open Settings &gt; License and choose <strong>Deactivate this Mac</strong> first. That frees one of your three Activations.</p>
           <ol>
             <li>In System Settings &gt; General &gt; Login Items, turn Zonal off, or untick <strong>Start Zonal at login</strong> in Zonal's Settings &gt; General.</li>
-            <li>If you connected Claude Code, click <strong>Disconnect Claude Code</strong> in Zonal's Settings &gt; General, so your sessions stop calling Zonal's hook.</li>
+            <li>If you connected Claude Code or Codex, click <strong>Disconnect Claude Code</strong> or <strong>Disconnect Codex</strong> in Zonal's Settings &gt; General, so your sessions stop calling Zonal's hook.</li>
             <li>Choose <strong>Quit</strong> in the Zonal menu.</li>
             <li>Drag Zonal from the Applications folder to the Trash.</li>
           </ol>
