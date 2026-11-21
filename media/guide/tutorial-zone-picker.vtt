@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00:02.000 --> 00:00:05.684
+In this lesson, you will learn to Snap a
+window without dragging it,
+
+00:00:05.684 --> 00:00:06.876
+using the Zone picker.
+
+00:00:07.226 --> 00:00:08.080
+On a trackpad,
+
+00:00:08.080 --> 00:00:12.291
+holding a key while you drag a window
+across the screen is hard work.
+
+00:00:12.291 --> 00:00:14.244
+The Zone picker needs one click.
+
+00:00:15.620 --> 00:00:19.354
+Every standard window has three buttons at
+its top left corner.
+
+00:00:19.354 --> 00:00:21.311
+The green one is the one we need.
+
+00:00:21.681 --> 00:00:26.220
+Hold Command, and rest the pointer on the
+green button. Keep it still for a moment.
+
+00:00:26.578 --> 00:00:28.987
+The Zone picker opens under the button.
+
+00:00:28.987 --> 00:00:31.644
+It is a small copy of the display's
+Layout,
+
+00:00:31.644 --> 00:00:34.238
+with the same Zone numbers as the overlay.
+
+00:00:34.614 --> 00:00:37.606
+You can let go of Command now. The picker
+stays open.
+
+00:00:37.980 --> 00:00:38.899
+Point at a Zone.
+
+00:00:38.899 --> 00:00:43.150
+Watch the screen: Zonal shows where the
+window will land before you click.
+
+00:00:43.531 --> 00:00:45.677
+Click the Zone, and the window Snaps
+there.
+
+00:00:46.154 --> 00:00:50.819
+To close the picker without Snapping, move
+the pointer away, or press Escape.
+
+00:00:50.819 --> 00:00:51.667
+Nothing moves.
+
+00:00:52.180 --> 00:00:54.978
+Without Command, the green button works as
+usual,
+
+00:00:54.978 --> 00:00:57.377
+so the Zone picker never gets in your way.
+
+00:00:58.992 --> 00:01:00.970
+When is the green button the best choice?
+
+00:01:01.320 --> 00:01:02.588
+On a laptop trackpad.
+
+00:01:02.588 --> 00:01:06.515
+Instead of holding a key during a long
+drag, you point and click.
+
+00:01:06.865 --> 00:01:09.663
+For a window that is far from where it
+belongs,
+
+00:01:09.663 --> 00:01:12.343
+like one at the other end of a large
+display.
+
+00:01:12.343 --> 00:01:13.892
+One click, and it is home.
+
+00:01:14.242 --> 00:01:18.573
+It can span too: Control-click several
+Zones in the picker to select them,
+
+00:01:18.573 --> 00:01:21.617
+then click once more to Snap the window
+across them.
+
+00:01:23.167 --> 00:01:27.237
+To recap. Hold Command and rest the
+pointer on the green button.
+
+00:01:27.237 --> 00:01:30.353
+Point at a Zone to preview it, and click
+to Snap.
+
+00:01:30.353 --> 00:01:32.707
+Move away, or press Escape, to close.
+
+00:01:34.257 --> 00:01:37.391
+In the next lesson, you will learn to Snap
+with the keyboard,
+
+00:01:37.391 --> 00:01:39.139
+without touching the mouse at all.

@@ -1,0 +1,156 @@
+WEBVTT
+
+00:00:02.000 --> 00:00:04.906
+In this lesson, you will learn to use the
+Rail.
+
+00:00:04.906 --> 00:00:08.617
+It is made for people who run several
+coding agents at once,
+
+00:00:08.617 --> 00:00:10.410
+such as Claude Code or Codex.
+
+00:00:10.760 --> 00:00:15.246
+Most of your agents are working at any
+moment, and only one or two need you.
+
+00:00:15.246 --> 00:00:17.548
+Yet each terminal takes the same space.
+
+00:00:17.548 --> 00:00:20.735
+The Rail gives the room to the session
+that needs you.
+
+00:00:22.106 --> 00:00:25.805
+A session is Busy while its agent works
+and needs nothing from you.
+
+00:00:26.234 --> 00:00:30.106
+It is Waiting when the agent has stopped
+and needs you: it finished,
+
+00:00:30.106 --> 00:00:32.498
+it asks permission, or it asks a question.
+
+00:00:33.234 --> 00:00:34.972
+First, add a Rail to a Layout.
+
+00:00:34.972 --> 00:00:38.912
+In the full-screen editor, right-click a
+Zone, and choose Make Rail.
+
+00:00:39.404 --> 00:00:41.835
+A narrow Zone at the side works best.
+
+00:00:41.835 --> 00:00:46.634
+The Rail is drawn in orange, with a dashed
+outline, and it has no number.
+
+00:00:48.110 --> 00:00:53.242
+Next, open Settings, General, and click
+Connect Claude Code, or Connect Codex.
+
+00:00:53.609 --> 00:00:56.527
+Zonal adds small hooks to the agent's
+settings,
+
+00:00:56.527 --> 00:01:00.376
+so the agent can tell Zonal when a session
+is Busy or Waiting.
+
+00:01:00.376 --> 00:01:04.287
+For Codex, run the hooks command once, and
+trust Zonal's hooks.
+
+00:01:05.738 --> 00:01:09.147
+Now Snap each terminal window to a Zone of
+that Layout.
+
+00:01:09.147 --> 00:01:13.735
+Here, the editor is in the first Zone, and
+two agents are in the next two.
+
+00:01:13.735 --> 00:01:15.285
+The Rail is on the right.
+
+00:01:15.704 --> 00:01:19.163
+Watch the first terminal. Its session has
+just become Busy.
+
+00:01:22.075 --> 00:01:25.542
+After twenty seconds of Busy, its window
+moves into the Rail,
+
+00:01:25.542 --> 00:01:27.474
+where you can still watch it work.
+
+00:01:27.474 --> 00:01:30.202
+The window next to it grows into the free
+space.
+
+00:01:30.751 --> 00:01:33.041
+Now the agent has stopped, and needs you.
+
+00:01:33.041 --> 00:01:36.952
+The session is Waiting, and its window
+goes straight back to its Zone.
+
+00:01:37.651 --> 00:01:41.357
+It does not take focus, so it never
+interrupts what you are typing.
+
+00:01:41.972 --> 00:01:45.345
+You can also click a window in the Rail to
+bring it back at once,
+
+00:01:45.345 --> 00:01:47.006
+whenever you want a closer look.
+
+00:01:48.640 --> 00:01:50.072
+Some ways to use the Rail.
+
+00:01:50.422 --> 00:01:54.891
+With an editor and two agents, the session
+that needs you is always the big one.
+
+00:01:54.891 --> 00:01:56.121
+You never hunt for it.
+
+00:01:56.471 --> 00:02:01.193
+With four agents, the Busy ones share the
+Rail in slices, each still readable,
+
+00:02:01.193 --> 00:02:02.283
+the oldest on top.
+
+00:02:02.633 --> 00:02:04.532
+And it is not only for agents.
+
+00:02:04.532 --> 00:02:09.597
+A long build or a test run can use the
+Rail too: the guide shows the two lines a
+
+00:02:09.597 --> 00:02:10.420
+script needs.
+
+00:02:11.970 --> 00:02:12.538
+To recap.
+
+00:02:12.538 --> 00:02:16.769
+Make a Rail in the editor, connect your
+agent in Settings, General,
+
+00:02:16.769 --> 00:02:18.284
+and Snap your terminals.
+
+00:02:18.284 --> 00:02:21.568
+Busy sessions move to the Rail after
+twenty seconds,
+
+00:02:21.568 --> 00:02:24.031
+and come back the moment they need you.
+
+00:02:25.581 --> 00:02:29.348
+In the last lesson, you will learn to make
+Zonal yours, in Settings.

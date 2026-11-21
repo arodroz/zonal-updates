@@ -1,0 +1,159 @@
+WEBVTT
+
+00:00:02.000 --> 00:00:02.835
+In this lesson,
+
+00:00:02.835 --> 00:00:06.956
+you will learn the most natural way to use
+Zonal: Snapping with the mouse.
+
+00:00:07.306 --> 00:00:08.770
+You drag windows anyway.
+
+00:00:08.770 --> 00:00:12.246
+Holding one key turns that drag into a
+precise placement,
+
+00:00:12.246 --> 00:00:14.746
+and you see every Zone before you choose.
+
+00:00:16.121 --> 00:00:19.791
+This Layout has three Zones. Let's put
+this window into one of them.
+
+00:00:20.352 --> 00:00:25.164
+Start dragging the window by its title
+bar, the top edge, like you always do.
+
+00:00:25.164 --> 00:00:26.913
+Nothing special happens yet.
+
+00:00:27.277 --> 00:00:29.467
+Now hold Shift, and keep holding it.
+
+00:00:29.467 --> 00:00:33.848
+Watch the screen: the overlay appears,
+with the Zones and their numbers.
+
+00:00:34.209 --> 00:00:36.923
+The overlay only shows while you hold
+Shift,
+
+00:00:36.923 --> 00:00:39.576
+so an ordinary drag stays an ordinary
+drag.
+
+00:00:39.931 --> 00:00:44.319
+Move the pointer over the Zone you want.
+The Zone under the pointer lights up.
+
+00:00:44.319 --> 00:00:46.176
+That is where the window will go.
+
+00:00:46.540 --> 00:00:48.506
+You do not need to aim precisely.
+
+00:00:48.506 --> 00:00:53.032
+If the pointer is in the gap between two
+Zones, Zonal picks the nearest one.
+
+00:00:53.733 --> 00:00:55.315
+Let go of the mouse button.
+
+00:00:55.315 --> 00:00:59.066
+The window Snaps: it takes the exact size
+and place of the Zone.
+
+00:00:59.560 --> 00:01:01.958
+Let's do it once more with the other
+window.
+
+00:01:01.958 --> 00:01:04.356
+Drag, hold Shift, choose a Zone, and let
+go.
+
+00:01:04.836 --> 00:01:07.793
+Sometimes one window needs more room for a
+while,
+
+00:01:07.793 --> 00:01:10.388
+like a wide spreadsheet or a long
+timeline.
+
+00:01:10.388 --> 00:01:12.681
+You do not need a new Layout for that.
+
+00:01:13.578 --> 00:01:18.439
+Hold Shift, then add Control. Now every
+Zone you cross joins the selection.
+
+00:01:18.439 --> 00:01:20.124
+Watch both Zones light up.
+
+00:01:20.491 --> 00:01:23.676
+Let go, and the window covers all the
+Zones you selected,
+
+00:01:23.676 --> 00:01:25.409
+including the gap between them.
+
+00:01:26.046 --> 00:01:29.952
+Changed your mind halfway? Release Shift
+before you release the mouse button.
+
+00:01:30.307 --> 00:01:34.778
+The overlay disappears, and the window
+stays exactly where you drop it,
+
+00:01:34.778 --> 00:01:35.974
+like a normal drag.
+
+00:01:35.974 --> 00:01:37.863
+Pressing Escape does the same.
+
+00:01:39.502 --> 00:01:42.383
+Some examples of when the drag is the
+right gesture.
+
+00:01:42.733 --> 00:01:47.803
+Your morning setup: open mail, calendar
+and chat, and Snap each into its Zone.
+
+00:01:47.803 --> 00:01:49.168
+It takes ten seconds.
+
+00:01:49.518 --> 00:01:53.944
+While coding, drag the documentation next
+to your editor, never on top of it.
+
+00:01:54.294 --> 00:01:56.024
+A spreadsheet that is too wide?
+
+00:01:56.024 --> 00:02:00.040
+Span it over two Zones while you work on
+it, then Snap it back into one.
+
+00:02:01.590 --> 00:02:05.585
+To recap. Hold Shift while you drag, and
+let go over a Zone.
+
+00:02:05.585 --> 00:02:07.916
+Add Control to cover several Zones.
+
+00:02:07.916 --> 00:02:11.378
+And release Shift first, or press Escape,
+to cancel.
+
+00:02:11.728 --> 00:02:14.610
+Try it now with two or three of your own
+windows.
+
+00:02:14.610 --> 00:02:16.904
+After a few Snaps, it becomes a reflex.
+
+00:02:18.454 --> 00:02:22.500
+In the next lesson, you will learn to Snap
+a window without dragging at all,
+
+00:02:22.500 --> 00:02:23.671
+from its green button.

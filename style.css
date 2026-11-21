@@ -46,6 +46,8 @@
     figure.shot.clip  A looping clip: <figure class="shot clip"><video width="1280" height="800" muted loop playsinline preload="none" poster="media/guide/clip-x-poster.webp" aria-label=".."><source src="media/guide/clip-x.mp4" type="video/mp4"></video><figcaption>..</figcaption></figure>.
                     With site/clips.js (defer) it plays only while in view, and not at all under prefers-reduced-motion (a click toggles it).
                     Dark screenshots: wrap the img in <picture><source srcset="media/guide/x-dark.webp" media="(prefers-color-scheme: dark)"><img ..></picture>.
+    figure.shot.tutorial  A narrated tutorial: <figure class="shot tutorial"><video controls preload="none" width="1280" height="800" poster=".." aria-label=".."><source ..><track kind="captions" src="media/guide/tutorial-x.vtt" srclang="en" label="English" default></video><figcaption>..</figcaption></figure>.
+                    Sized by figure.shot video; site/clips.js ignores it (the visitor starts it, with sound).
     .pair           Two figures side by side from 720px up (before/after): <div class="pair"><figure class="shot">..</figure><figure class="shot">..</figure></div>.
     .recipes        Grid of .recipe cards (1 column on phones, 2 from 720px): <div class="recipes"><div class="recipe"><svg ..></svg><h3>..</h3><p>..</p></div></div>.
                     The svg is a mini Layout (viewBox 0 0 160 100) using .z (Zone), .z-main (accent Zone) and .z-rail (Rail) classes.

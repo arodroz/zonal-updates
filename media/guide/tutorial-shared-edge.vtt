@@ -1,0 +1,95 @@
+WEBVTT
+
+00:00:02.000 --> 00:00:06.653
+In this lesson, you will learn to resize
+two windows that sit side by side,
+
+00:00:06.653 --> 00:00:07.584
+in one gesture.
+
+00:00:07.934 --> 00:00:10.230
+A Layout is a starting point, not a cage.
+
+00:00:10.230 --> 00:00:12.751
+When your code needs more width for a
+moment,
+
+00:00:12.751 --> 00:00:14.991
+you should not have to rebuild anything.
+
+00:00:16.355 --> 00:00:19.951
+These two windows are Snapped side by
+side, each in its own Zone.
+
+00:00:20.422 --> 00:00:23.209
+The line where they meet is called a
+Shared edge.
+
+00:00:23.209 --> 00:00:25.769
+Point at it, exactly where the windows
+touch.
+
+00:00:26.408 --> 00:00:31.373
+Now drag it to the right. Watch the window
+on the right: it follows as you drag.
+
+00:00:31.373 --> 00:00:33.296
+There is no gap and no overlap.
+
+00:00:33.652 --> 00:00:37.852
+It works in both directions. Drag back,
+and the other window grows again.
+
+00:00:38.315 --> 00:00:41.468
+Only the windows change. The Layout stays
+as it is.
+
+00:00:41.987 --> 00:00:44.584
+So your next Snap uses the original Zones.
+
+00:00:44.584 --> 00:00:47.861
+To go back to the plan, simply Snap the
+window again.
+
+00:00:49.335 --> 00:00:50.731
+This is on by default.
+
+00:00:50.731 --> 00:00:53.204
+To turn it off, open Settings, General,
+
+00:00:53.204 --> 00:00:56.185
+and clear Resize neighbouring windows
+together.
+
+00:00:57.833 --> 00:00:59.776
+Some examples of a quick rebalance.
+
+00:01:00.126 --> 00:01:04.359
+You are reading a long function: give the
+editor more width for a moment,
+
+00:01:04.359 --> 00:01:06.679
+and the documentation beside it shrinks.
+
+00:01:07.029 --> 00:01:12.126
+A web page that needs more room: widen the
+browser, read, and drag the edge back.
+
+00:01:12.476 --> 00:01:16.863
+It works with more than two windows: two
+stacked windows both follow the edge of
+
+00:01:16.863 --> 00:01:18.399
+the tall window beside them.
+
+00:01:19.949 --> 00:01:24.944
+To recap. Drag the edge where two Snapped
+windows meet, and both resize together.
+
+00:01:24.944 --> 00:01:29.817
+Your Layout does not change, and Snapping
+again brings back the original Zones.
+
+00:01:31.367 --> 00:01:34.271
+In the next lesson, you will learn to make
+your own Layouts.
